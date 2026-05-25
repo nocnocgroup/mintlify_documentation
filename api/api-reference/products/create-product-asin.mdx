@@ -1,0 +1,56 @@
+---
+title: "Create product by ASIN"
+api: "POST https://live.nocnocstore.com/api/v2/products/"
+description: "Creates a new product using an Amazon ASIN to auto-populate product data."
+---
+
+## Body parameters
+
+<ParamField body="sku" type="string" required>
+  Alphanumeric unique code for the product. Between 1 and 45 characters.
+</ParamField>
+
+<ParamField body="international_ids" type="object" required>
+  Structure defining international identifiers. Must include the Amazon ASIN.
+</ParamField>
+
+<ParamField body="available_quantity" type="integer" required>
+  Stock quantity. Between 0 and 9999.
+</ParamField>
+
+<ParamField body="price" type="number">
+  Price of the product. Up to 10 integer digits and 2 decimal places.
+</ParamField>
+
+<ParamField body="currency_code" type="string">
+  Currency code (ISO). Currently only `USD` is supported.
+</ParamField>
+
+## Example request
+
+```bash
+curl -X POST https://live.nocnocstore.com/api/v2/products/ \
+  -H "X-Api-Key: YOUR_SELLER_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sku": "MY-SKU-002",
+    "international_ids": { "asin": "B08N5WRWNW" },
+    "available_quantity": 50,
+    "price": 49.99,
+    "currency_code": "USD"
+  }'
+```
+
+## Responses
+
+<ResponseField name="200" type="object">
+  Product created successfully using ASIN data.
+</ResponseField>
+
+<ResponseField name="400" type="object">
+  Empty or non-JSON body, wrong data type, or duplicate SKU.
+</ResponseField>
+
+<ResponseField name="401" type="object">
+  Missing or invalid API key.
+</ResponseField>

@@ -1,0 +1,60 @@
+---
+title: "Update stock and price"
+api: "PATCH https://live.nocnocstore.com/api/v2/products/sku/{sku}"
+description: "Updates the stock quantity and/or price of an existing product."
+---
+
+<Note>
+  At least one of `available_quantity` or `price` must be provided. If `price` is provided, `currency_code` is required.
+</Note>
+
+## Path parameters
+
+<ParamField path="sku" type="string" required>
+  The SKU of the product to update.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="available_quantity" type="integer">
+  New stock quantity. Between 0 and 9999. Required if `price` is not provided.
+</ParamField>
+
+<ParamField body="price" type="number">
+  New price. Required if `available_quantity` is not provided.
+</ParamField>
+
+<ParamField body="currency_code" type="string">
+  Currency code (ISO). Required if `price` is provided. Currently only `USD` is supported.
+</ParamField>
+
+## Example request
+
+```bash
+curl -X PATCH https://live.nocnocstore.com/api/v2/products/sku/MY-SKU-001 \
+  -H "X-Api-Key: YOUR_SELLER_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "available_quantity": 75,
+    "price": 24.99,
+    "currency_code": "USD"
+  }'
+```
+
+## Responses
+
+<ResponseField name="200" type="object">
+  Product updated successfully.
+</ResponseField>
+
+<ResponseField name="400" type="object">
+  Validation error — missing required fields or invalid values.
+</ResponseField>
+
+<ResponseField name="401" type="object">
+  Missing or invalid API key.
+</ResponseField>
+
+<ResponseField name="404" type="object">
+  SKU not found.
+</ResponseField>
