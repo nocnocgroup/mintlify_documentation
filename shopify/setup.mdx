@@ -3,31 +3,37 @@ title: "Shopify setup"
 description: "Step-by-step guide to connect your Shopify store with nocnoc."
 ---
 
-This guide walks you through the full setup process to integrate your Shopify store with nocnoc. Follow each step in order — it should take around 15 minutes.
-
 <Steps>
   <Step title="Access Shopify Admin Settings">
     Go to the **Settings** section inside your Shopify Admin panel.
+
+    <img src="/shopify/images/image3.png" alt="Shopify Admin Settings" />
   </Step>
 
   <Step title="Open App Development">
     Inside Settings, navigate to **Apps → Develop Apps**.
 
-    <Note>
-      Save your store's domain URL (visible in the upper left corner) — you'll need to share it with nocnoc later.
-    </Note>
+    Save your store's domain URL (visible in the upper left corner) — you'll need to share it with nocnoc later.
+
+    <img src="/shopify/images/image8.png" alt="Apps and Develop Apps" />
   </Step>
 
   <Step title="Open the Dev Dashboard">
     Click on **Build apps from Dev Dashboard**.
+
+    <img src="/shopify/images/image12.png" alt="Build apps from Dev Dashboard" />
   </Step>
 
   <Step title="Create a new app">
     Inside the Dev Dashboard, go to the **Apps** section and click **Create App**.
+
+    <img src="/shopify/images/image2.png" alt="Create App" />
   </Step>
 
   <Step title="Name your app">
     Fill in the **App name** (we suggest using `nocnoc`) and click **Create**.
+
+    <img src="/shopify/images/image4.png" alt="Name your app" />
   </Step>
 
   <Step title="Configure the app version">
@@ -38,7 +44,13 @@ This guide walks you through the full setup process to integrate your Shopify st
     - Uncheck **Embed app in Shopify admin**.
     - **Webhooks API Version** — select the latest available version.
 
-    Scroll down and click **Select Scopes**. Search for and enable the following scopes:
+    <img src="/shopify/images/image13.png" alt="Configure app version" />
+
+    Scroll down and click **Select Scopes**.
+
+    <img src="/shopify/images/image11.png" alt="Select Scopes button" />
+
+    Search for and enable the following scopes:
 
     | Scope | Required |
     |-------|----------|
@@ -50,7 +62,11 @@ This guide walks you through the full setup process to integrate your Shopify st
     | `read_inventory` | Required |
     | `read_locations` | Optional — only if stock is managed across multiple locations |
 
-    Click **Done** to save.
+    <img src="/shopify/images/image19.png" alt="Scopes selection 1" />
+    <img src="/shopify/images/image18.png" alt="Scopes selection 2" />
+    <img src="/shopify/images/image20.png" alt="Scopes selection 3" />
+
+    Click **Done** to save the configuration.
   </Step>
 
   <Step title="Set the Redirect URL and release">
@@ -60,6 +76,8 @@ This guide walks you through the full setup process to integrate your Shopify st
     https://live.nocnocstore.com/shopify/oauth/callback
     ```
 
+    <img src="/shopify/images/image15.png" alt="Redirect URL" />
+
     No action is required for the POS or App proxy sections.
 
     Click **Release** to create the version.
@@ -67,6 +85,8 @@ This guide walks you through the full setup process to integrate your Shopify st
 
   <Step title="Name and release the version">
     Set the **Version name** to `onboarding_version` and click **Release**.
+
+    <img src="/shopify/images/image6.png" alt="Release version" />
   </Step>
 
   <Step title="Save your Client ID and Secret">
@@ -74,28 +94,38 @@ This guide walks you through the full setup process to integrate your Shopify st
 
     - **Client ID**
     - **Secret**
+
+    <img src="/shopify/images/image5.png" alt="Client ID and Secret" />
   </Step>
 
   <Step title="Install the app">
     Go to the **Home** section of the nocnoc app and click **Install app**.
+
+    <img src="/shopify/images/image10.png" alt="Install app button" />
   </Step>
 
   <Step title="Select your store">
     In the window that opens, select the active Shopify store you want to connect to nocnoc.
+
+    <img src="/shopify/images/image17.png" alt="Select store" />
   </Step>
 
   <Step title="Confirm permissions">
     Review the access permissions requested and click **Install**.
+
+    <img src="/shopify/images/image9.png" alt="Confirm permissions" />
 
     <Note>
       After clicking Install, you'll be redirected to nocnoc's website — no action is needed there. Close that page and return to your Shopify Admin to continue.
     </Note>
   </Step>
 
-  <Step title="Return to Admin Settings">
-    Close the Dev Dashboard and go back to **Settings** in your Shopify Admin panel.
+  <Step title="Navigate to Webhooks">
+    Close the Dev Dashboard and return to **Settings** in your Shopify Admin panel.
 
     Navigate to **Notifications → Webhooks**.
+
+    <img src="/shopify/images/image7.png" alt="Notifications and Webhooks" />
   </Step>
 
   <Step title="Create two webhooks">
@@ -110,6 +140,8 @@ This guide walks you through the full setup process to integrate your Shopify st
     | URL | `https://live.nocnocstore.com/shopify/webhooks/products` |
     | Version | Latest |
 
+    <img src="/shopify/images/image16.png" alt="Webhook 1 - Product Update" />
+
     **Webhook 2 — Fulfillment creation**
 
     | Field | Value |
@@ -118,6 +150,8 @@ This guide walks you through the full setup process to integrate your Shopify st
     | Format | JSON |
     | URL | `https://live.nocnocstore.com/shopify/webhooks/orders/fulfillments` |
     | Version | Latest |
+
+    <img src="/shopify/images/image14.png" alt="Webhook 2 - Fulfillment Creation" />
   </Step>
 
   <Step title="Send configuration details to your Account Manager">
