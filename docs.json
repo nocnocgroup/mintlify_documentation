@@ -75,5 +75,8 @@
   },
   "footerSocials": {
     "website": "https://nocnoc.com"
+  },
+  "custom": {
+    "css": ".rm-ReferenceMain .parameterField, .rm-ReferenceMain .returns, .rm-ReferenceMain h2 { background: #F4F3EF; border-radius: 8px; padding: 12px 16px; }"
   }
 }
