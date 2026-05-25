@@ -1,0 +1,50 @@
+---
+title: "GoFlow setup"
+description: "Step-by-step guide to connect your GoFlow account with nocnoc."
+---
+
+<Steps>
+  <Step title="Create a new store">
+    Access the left sidebar on the GoFlow dashboard and go to **Directory → Stores**.
+
+    Click **New Store** in the upper-right corner.
+
+    Search for `nocnoc` in the search bar and select it as the channel.
+
+    Enter `nocnoc` as the store name, select at least one warehouse for order fulfillment, and click **Save**.
+
+    <img src="/goflow/images/image2.png" alt="Create new store" />
+    <img src="/goflow/images/image4.png" alt="Store configuration" />
+  </Step>
+
+  <Step title="Connect the store to nocnoc">
+    On the store page, go to the **Connection** card (lower right side) and click **Connect**.
+
+    Enter your API key — contact your nocnoc Account Manager to obtain it.
+
+    Click **Save** to connect the store to your nocnoc account.
+
+    <img src="/goflow/images/image6.png" alt="Connection card" />
+    <img src="/goflow/images/image3.png" alt="Enter API key" />
+  </Step>
+
+  <Step title="Configure the store settings">
+    **Shipping** — In the **Shipping** card, click **Manage Shipping** to configure your shipping settings.
+
+    **Inventory** — In the **Inventory Allocation** card, click **Add Inventory Allocation Settings** to configure inventory allocation.
+
+    **Orders Import** — In the **Status** card, find **Orders Import**, click the pencil icon, set it to **Enabled**, and click **Save**. This allows GoFlow to periodically import all orders received through nocnoc.
+
+    <img src="/goflow/images/image1.png" alt="Orders Import enabled" />
+
+    **Listings Import** — In the same **Status** card, find **Listings Import**, click the pencil icon, set it to **Enabled**, and click **Save**. This allows GoFlow to periodically import all products created on your nocnoc account.
+
+    <img src="/goflow/images/image7.png" alt="Listings Import enabled" />
+
+    <Note>
+      Order and listing imports run on scheduled intervals. If you notice any missing orders or products right after setup, they should appear shortly once the next sync runs.
+    </Note>
+  </Step>
+</Steps>
+
+Once these steps are completed, your GoFlow account will be fully connected to nocnoc.

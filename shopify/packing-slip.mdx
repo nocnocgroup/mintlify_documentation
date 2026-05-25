@@ -1,0 +1,106 @@
+---
+title: "Add nocnoc barcode to packing slip"
+description: "How to add nocnoc's barcode to your Shopify order template for shipping labels."
+---
+
+nocnoc requires a barcode on shipping labels to process your orders. Choose the method that works best for your setup.
+
+<CardGroup cols={2}>
+  <Card title="Option 1 — Order Printer plugin" icon="printer">
+    If you use the Order Printer plugin to generate labels.
+  </Card>
+  <Card title="Option 2 — Native packing slips" icon="file">
+    If you use Shopify's built-in packing slip template.
+  </Card>
+</CardGroup>
+
+---
+
+## Option 1 — Order Printer plugin
+
+### Step 1: Open the template editor
+
+Access the **Manage Templates** section of the Order Printer plugin. Select the template you use for nocnoc orders and click **Edit Template**.
+
+### Step 2: Add the barcode code
+
+Insert the following two code blocks into your template.
+
+**Code 1** — Captures the nocnoc Order ID. Add this at the **beginning** of the template.
+
+```liquid
+<!-- Capture nocnoc Order ID -->
+{% if order.note contains "NocNoc Order Id:" %}
+  {% capture nocnoc_order_id %}{{ order.note | split: ":" | last | strip }}{% endcapture %}
+{% endif %}
+```
+
+**Code 2** — Adds the barcode and the `nocnoc OrderID: NCXXXXX` label. Add this **wherever you want** in your template. It only displays for nocnoc orders and won't affect the rest of your operation.
+
+```liquid
+<div style="text-align: center;">
+    {% if nocnoc_order_id != blank %}
+        <s-barcode type="code128" value="{{ nocnoc_order_id }}" style="width: 300px; height: 80px;"></s-barcode>
+        <p>nocnoc Order Id: {{ nocnoc_order_id }}</p>
+    {% endif %}
+</div>
+```
+
+Once you've made both changes, click **Save**.
+
+---
+
+## Option 2 — Native packing slips
+
+### Step 1: Download and upload the barcode font
+
+Download the Barcode 39 Text font from Google Fonts:
+
+[https://fonts.google.com/specimen/Libre+Barcode+39+Text](https://fonts.google.com/specimen/Libre+Barcode+39+Text)
+
+Extract the `.zip` file and upload the `.ttf` file to your Shopify store. Go to **Content → Files** and click **Upload Files**.
+
+<Note>
+  Copy and save the URL that Shopify generates for your uploaded file — you'll need it in the next step.
+</Note>
+
+### Step 2: Modify the packing slip template
+
+Go to **Settings → Shipping and Delivery → Packing Slips Template** and add the following three code blocks.
+
+**Code 1** — Loads the barcode font. Add this at the **beginning** of the template. Replace `URL_OF_YOUR_FONT_FILE` with the URL from Step 1.
+
+```html
+<style>
+@font-face {
+  font-family: 'Libre Barcode 39 Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(URL_OF_YOUR_FONT_FILE) format('truetype');
+}
+</style>
+```
+
+**Code 2** — Captures the nocnoc Order ID. Add this at the **beginning** of the template.
+
+```liquid
+<!-- Capture nocnoc Order ID -->
+{%- assign nocnoc_order_id = '' -%}
+{%- if order.note contains "NocNoc Order Id:" -%}
+  {%- assign nocnoc_order_id = order.note | split: ":" | last | strip | upcase -%}
+{%- endif -%}
+```
+
+**Code 3** — Adds the barcode and the `nocnoc OrderID: NCXXXXX` label. Add this **wherever you want** in your template. It only displays for nocnoc orders and won't affect the rest of your operation.
+
+```liquid
+<div style="text-align: center; margin-top: 40px;">
+  {%- if nocnoc_order_id != blank -%}
+    <p style="font-family: 'Libre Barcode 39 Text', cursive; font-size: 80px;">*{{- nocnoc_order_id -}}*</p>
+    <p>nocnoc Order Id: {{ nocnoc_order_id }}</p>
+  {%- endif -%}
+</div>
+```
+
+Once you've made all changes, click **Save**.

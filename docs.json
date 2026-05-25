@@ -74,6 +74,23 @@
             "pages": [
               "shopify/setup"
             ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "shopify/packing-slip"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "GoFlow",
+        "groups": [
+          {
+            "group": "Get started",
+            "pages": [
+              "goflow/setup"
+            ]
           }
         ]
       }
