@@ -18,7 +18,9 @@
     "tabs": [
       {
         "tab": "Home",
-        "pages": ["index"]
+        "pages": [
+          "index"
+        ]
       },
       {
         "tab": "REST API",
@@ -27,9 +29,7 @@
             "group": "Get started",
             "pages": [
               "api/introduction",
-              "api/quickstart",
-              "api/environments",
-              "api/authentication"
+              "api/quickstart"
             ]
           },
           {
