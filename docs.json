@@ -65,6 +65,17 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Shopify",
+        "groups": [
+          {
+            "group": "Get started",
+            "pages": [
+              "shopify/setup"
+            ]
+          }
+        ]
       }
     ]
   },

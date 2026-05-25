@@ -1,0 +1,134 @@
+---
+title: "Shopify setup"
+description: "Step-by-step guide to connect your Shopify store with nocnoc."
+---
+
+This guide walks you through the full setup process to integrate your Shopify store with nocnoc. Follow each step in order — it should take around 15 minutes.
+
+<Steps>
+  <Step title="Access Shopify Admin Settings">
+    Go to the **Settings** section inside your Shopify Admin panel.
+  </Step>
+
+  <Step title="Open App Development">
+    Inside Settings, navigate to **Apps → Develop Apps**.
+
+    <Note>
+      Save your store's domain URL (visible in the upper left corner) — you'll need to share it with nocnoc later.
+    </Note>
+  </Step>
+
+  <Step title="Open the Dev Dashboard">
+    Click on **Build apps from Dev Dashboard**.
+  </Step>
+
+  <Step title="Create a new app">
+    Inside the Dev Dashboard, go to the **Apps** section and click **Create App**.
+  </Step>
+
+  <Step title="Name your app">
+    Fill in the **App name** (we suggest using `nocnoc`) and click **Create**.
+  </Step>
+
+  <Step title="Configure the app version">
+    In the **Create a version** section, fill in the following fields:
+
+    - **App name** — same as the one you chose above.
+    - **App URL** — `http://nocnocstore.com`
+    - Uncheck **Embed app in Shopify admin**.
+    - **Webhooks API Version** — select the latest available version.
+
+    Scroll down and click **Select Scopes**. Search for and enable the following scopes:
+
+    | Scope | Required |
+    |-------|----------|
+    | `read_products` | Required |
+    | `read_orders` | Required |
+    | `write_orders` | Required |
+    | `read_customer` | Required |
+    | `write_customers` | Required |
+    | `read_inventory` | Required |
+    | `read_locations` | Optional — only if stock is managed across multiple locations |
+
+    Click **Done** to save.
+  </Step>
+
+  <Step title="Set the Redirect URL and release">
+    Confirm all required scopes are selected, then set the **Redirect URL** to:
+
+    ```
+    https://live.nocnocstore.com/shopify/oauth/callback
+    ```
+
+    No action is required for the POS or App proxy sections.
+
+    Click **Release** to create the version.
+  </Step>
+
+  <Step title="Name and release the version">
+    Set the **Version name** to `onboarding_version` and click **Release**.
+  </Step>
+
+  <Step title="Save your Client ID and Secret">
+    In the **Settings** section of the nocnoc app, save the following — you'll need to share them with your Account Manager:
+
+    - **Client ID**
+    - **Secret**
+  </Step>
+
+  <Step title="Install the app">
+    Go to the **Home** section of the nocnoc app and click **Install app**.
+  </Step>
+
+  <Step title="Select your store">
+    In the window that opens, select the active Shopify store you want to connect to nocnoc.
+  </Step>
+
+  <Step title="Confirm permissions">
+    Review the access permissions requested and click **Install**.
+
+    <Note>
+      After clicking Install, you'll be redirected to nocnoc's website — no action is needed there. Close that page and return to your Shopify Admin to continue.
+    </Note>
+  </Step>
+
+  <Step title="Return to Admin Settings">
+    Close the Dev Dashboard and go back to **Settings** in your Shopify Admin panel.
+
+    Navigate to **Notifications → Webhooks**.
+  </Step>
+
+  <Step title="Create two webhooks">
+    Create the following two webhooks:
+
+    **Webhook 1 — Product updates**
+
+    | Field | Value |
+    |-------|-------|
+    | Event | Product Update |
+    | Format | JSON |
+    | URL | `https://live.nocnocstore.com/shopify/webhooks/products` |
+    | Version | Latest |
+
+    **Webhook 2 — Fulfillment creation**
+
+    | Field | Value |
+    |-------|-------|
+    | Event | Fulfillment Creation |
+    | Format | JSON |
+    | URL | `https://live.nocnocstore.com/shopify/webhooks/orders/fulfillments` |
+    | Version | Latest |
+  </Step>
+
+  <Step title="Send configuration details to your Account Manager">
+    Once all previous steps are complete, email your Account Manager with the following information to finish the integration setup:
+
+    - **Store domain URL** (from Step 2) — the URL ending in `.myshopify.com` (e.g. `yourstore.myshopify.com`). Find it in **Settings → Domains**.
+    - **Client ID** (from Step 9)
+    - **Secret** (from Step 9)
+
+    <Warning>
+      Send your `.myshopify.com` URL, not your public website URL (e.g. `www.mystore.com`) — the public URL cannot be used for the integration.
+    </Warning>
+  </Step>
+</Steps>
