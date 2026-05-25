@@ -1,16 +1,16 @@
 ---
 title: "nocnoc Seller API"
-description: "Conectá tu catálogo con los principales marketplaces de LATAM desde una sola integración."
+description: "Connect your catalog to the leading marketplaces in LATAM from a single integration."
 mode: "custom"
 ---
 
 <div style={{background:"#0061FC",borderRadius:"16px",padding:"48px 40px 40px",marginBottom:"32px"}}>
   <p style={{fontSize:"11px",fontWeight:"600",letterSpacing:"0.1em",textTransform:"uppercase",color:"#A4F9FF",marginBottom:"12px"}}>Seller Integration Hub</p>
-  <h1 style={{fontSize:"32px",fontWeight:"700",color:"#ffffff",lineHeight:"1.2",marginBottom:"12px"}}>Conectá tu catálogo con LATAM en minutos</h1>
-  <p style={{fontSize:"15px",color:"rgba(255,255,255,0.78)",lineHeight:"1.6",maxWidth:"520px",marginBottom:"28px"}}>La API de nocnoc te permite sincronizar productos, gestionar órdenes y coordinar envíos desde tu sistema hacia los principales marketplaces de Latinoamérica.</p>
+  <h1 style={{fontSize:"32px",fontWeight:"700",color:"#ffffff",lineHeight:"1.2",marginBottom:"12px"}}>Connect your catalog to LATAM in minutes</h1>
+  <p style={{fontSize:"15px",color:"rgba(255,255,255,0.78)",lineHeight:"1.6",maxWidth:"520px",marginBottom:"28px"}}>The nocnoc API lets you sync products, manage orders, and coordinate shipments from your system to the leading marketplaces across Latin America.</p>
   <div style={{display:"flex",gap:"12px",flexWrap:"wrap",marginBottom:"32px"}}>
     <a href="/introduction" style={{background:"#A4F9FF",color:"#010533",fontWeight:"600",fontSize:"13px",padding:"10px 22px",borderRadius:"8px",textDecoration:"none"}}>Quick Start →</a>
-    <a href="/api-reference/overview" style={{background:"transparent",color:"#ffffff",fontSize:"13px",padding:"10px 22px",borderRadius:"8px",border:"1px solid rgba(255,255,255,0.35)",textDecoration:"none"}}>Ver endpoints</a>
+    <a href="/api-reference/overview" style={{background:"transparent",color:"#ffffff",fontSize:"13px",padding:"10px 22px",borderRadius:"8px",border:"1px solid rgba(255,255,255,0.35)",textDecoration:"none"}}>View endpoints</a>
   </div>
   <div style={{display:"flex",gap:"24px",flexWrap:"wrap"}}>
     <span style={{fontSize:"12px",color:"rgba(255,255,255,0.6)"}}>🌐 live.nocnocstore.com</span>
@@ -19,40 +19,40 @@ mode: "custom"
   </div>
 </div>
 
-## Flujo de integración
+## Integration flow
 
 <Steps>
-  <Step title="Autenticación" icon="key">
-    Obtené tu `SELLER_KEY` y configurá el header `X-Api-Key` en cada request. [Ver cómo →](/authentication)
+  <Step title="Authentication" icon="key">
+    Get your `SELLER_KEY` and set the `X-Api-Key` header on every request. [Learn how →](/authentication)
   </Step>
-  <Step title="Publicá productos" icon="package">
-    Creá y sincronizá tu catálogo con stock y precio actualizados. Podés crear productos manualmente o desde un ASIN de Amazon. [Ver cómo →](/api-reference/products/create-product)
+  <Step title="Publish products" icon="package">
+    Create and sync your catalog with up-to-date stock and pricing. You can create products manually or from an Amazon ASIN. [Learn how →](/api-reference/products/create-product)
   </Step>
-  <Step title="Gestioná órdenes" icon="shopping-cart">
-    Consultá y procesá las órdenes entrantes de todos tus canales. Filtrá por estado, fecha o ID. [Ver cómo →](/api-reference/orders/list-orders)
+  <Step title="Manage orders" icon="shopping-cart">
+    Retrieve and process incoming orders from all your channels. Filter by status, date, or order ID. [Learn how →](/api-reference/orders/list-orders)
   </Step>
-  <Step title="Coordiná envíos" icon="truck">
-    Registrá paquetes Son por orden y agrupalos en un paquete Father para el despacho consolidado. [Ver cómo →](/guides/sending-packages)
+  <Step title="Ship packages" icon="truck">
+    Register Son packages per order and consolidate them into a Father package for bulk first-mile shipping. [Learn how →](/guides/sending-packages)
   </Step>
 </Steps>
 
-## Módulos de la API
+## API modules
 
 <CardGroup cols={2}>
   <Card title="Products" icon="package" href="/api-reference/products/list-products">
-    Publicá tu catálogo, actualizá stock y precios, y consultá productos por SKU.
+    Publish your catalog, update stock and prices, and retrieve products by SKU.
   </Card>
   <Card title="Orders" icon="shopping-cart" href="/api-reference/orders/list-orders">
-    Consultá órdenes con filtros por estado y fecha. Cancelá cuando sea necesario.
+    Retrieve orders with filters by status and date. Cancel orders when needed.
   </Card>
   <Card title="Packages" icon="truck" href="/api-reference/packages/create-son-package">
-    Registrá paquetes por orden y consolidalos para el primer tramo de envío.
+    Register packages per order and consolidate them for first-mile shipping.
   </Card>
   <Card title="Authentication" icon="key" href="/authentication">
-    Configurá tu API Key y autenticá todos los requests correctamente.
+    Set up your API Key and authenticate all requests correctly.
   </Card>
 </CardGroup>
 
 <Note>
-  **Solo tenemos entorno Live por ahora.** Todos los requests generan órdenes y acciones reales. Si necesitás probar antes de ir a producción, coordinalo con tu Account Manager — te habilitamos un setup de testing.
+  **Live environment only.** All requests generate real orders and actions. If you need to test before going live, coordinate with your Account Manager — we'll set up a testing environment for you.
 </Note>
