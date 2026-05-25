@@ -93,6 +93,17 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Sellercloud",
+        "groups": [
+          {
+            "group": "Get started",
+            "pages": [
+              "sellercloud/setup"
+            ]
+          }
+        ]
       }
     ]
   },

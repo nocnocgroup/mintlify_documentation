@@ -1,0 +1,184 @@
+---
+title: "Sellercloud setup"
+description: "Step-by-step guide to connect your Sellercloud account with nocnoc via FTP."
+---
+
+<Warning>
+  You need to have a seller account with nocnoc and discuss setting up an FTP connection. nocnoc will provide you with the necessary credentials for the setup.
+</Warning>
+
+<Note>
+  We strongly recommend you create a new designated company for this integration where you will set up the scheduled tasks and receive the orders.
+</Note>
+
+This integration requires creating two **Export Profiles** and one **Import Profile**, which will then be configured on three separate Scheduled Tasks, plus two Saved Searches (for Products and for Orders).
+
+## Download templates
+
+Download the nocnoc templates before starting:
+
+- [Template Tracking](https://drive.google.com/file/d/13aqKOZlI1s3G381sywyGCN4sn93btwtp/view?usp=drive_link)
+- [Template Inventory](https://drive.google.com/file/d/1cci6GOf124PKUUpTQ1SsHZka3vW8SgKd/view?usp=drive_link)
+- [Template Orders](https://drive.google.com/file/d/1w5mOTyl0XzOAZDQ6rlvUmbYlPz0kxw-H/view?usp=drive_link)
+
+## Create profiles
+
+### Export profiles (×2)
+
+1. Navigate to **Settings → Mapping Tools → Manage Export Mapping Profiles**.
+2. Click the blue **Actions** icon in the bottom right corner → **Create**.
+3. Fill in the required fields:
+   - **Profile Name** — e.g. `nocnoc Inventory Feed` and `nocnoc Tracking Export`
+   - **Profile Type** — set the first to `Product` and the second to `Order`
+     - For the `Order` type: set **Export Type** to `Tracking` and enable **Export fully shipped orders only**. The Vendor field can remain empty.
+   - **Export File Type** — set to `CSV`
+   - Check **Export File with Headers**
+4. Click **Template File**, find and select the downloaded template from your device.
+5. Click **Add**.
+
+### Import profile
+
+1. Navigate to **Settings → Mapping Tools → Manage Import Mapping Profiles**.
+2. Click the blue **Actions** icon in the bottom right corner → **Create**.
+3. Fill in the required fields:
+   - **Profile Name** — e.g. `nocnoc Orders`
+   - **Import type** — set to `Order`
+   - **Skip First Rows** — set to `0`
+   - Check **Order is Paid** and **Order is Authorized**
+   - **Order Source** — set to `Website`
+   - **Company** — choose the nocnoc-designated company you created
+   - **Warehouse** — select the warehouse from which you will fulfill nocnoc orders
+   - Check **File contain headers**
+4. Click **Template File**, find and select the downloaded template from your device.
+5. Click **Create**.
+
+## Map profile fields
+
+### Inventory export profile
+
+Go to **Settings → Mapping Tools → Manage Export Profiles → nocnoc Inventory Export → Edit** and map the following fields:
+
+| Field | Maps to |
+|-------|---------|
+| `sku` | `bvc_Product.ID` |
+| `price` | `bvc_Product.SitePrice` |
+| `stock` | `bvc_Product.AggregateQty` |
+
+<Note>
+  If you don't want to use the Site Price for your nocnoc listings, you can request a Product [Custom Column](https://sellercloud.com/help/omnichannel-ecommerce/custom-columns-overview/) and map that instead. Contact [Sellercloud Support](https://sellercloud.com/help/omnichannel-ecommerce/seller-cloud-support/) to set this up.
+</Note>
+
+### Tracking export profile
+
+Go to **Settings → Mapping Tools → Manage Export Profiles → nocnoc Tracking Export → Edit** and map the following fields:
+
+| Field | Maps to |
+|-------|---------|
+| `OrderID` | `bvc_Order.OrderSourceOrderID` |
+| `TrackingCode` | `bvc_Order.TrackingNumberProvided` |
+| `Carrier` | `bvc_Order.ShippingCarrier` |
+| `SKU` | `bvc_OrderItem.ProductID` |
+| `Quantity` | `bvc_OrderItem.Qty` |
+
+<Warning>
+  If your catalog uses parent/child SKU relationships and you want to send tracking for a child SKU, map `SKU` to `bvc_orderitem.productIDOriginal` instead of `bvc_orderitem.productID`.
+</Warning>
+
+### Order import profile
+
+Go to **Settings → Mapping Tools → Manage Import Profiles → nocnoc Orders → Edit** and map the following fields:
+
+| Field | Maps to |
+|-------|---------|
+| `OrderID` | `Order_OrderSourceOrderID` |
+| `SKU` | `Order_Item_ProductID` |
+| `Quantity` | `Order_Item_Qty` |
+| `Price` | `Order_Item_SalePrice` |
+| `CreatedAt` | `Order_TimeOfOrder` |
+| `ShippingFirstName` | `Order_ShippingFirstName` |
+| `ShippingLastName` | `Order_ShippingLastName` |
+| `ShippingAddress1` | `Order_ShippingStreetLine1` |
+| `ShippingAddress2` | `Order_ShippingStreetLine2` |
+| `ShippingCity` | `Order_ShippingCity` |
+| `ShippingPhone` | `Order_ShippingPhoneNumber` |
+| `ShippingStateCode` | `Order_ShippingStateCode` |
+| `ShippingPostalCode` | `Order_ShippingPostalCode` |
+| `ShippingCountryCode` | `Order_ShippingCountryCode` |
+
+## Create scheduled tasks
+
+### Inventory export task
+
+Exports inventory and price feeds to nocnoc on a regular schedule. Requires a [Saved View](https://sellercloud.com/help/omnichannel-ecommerce/saved-searches/) for products.
+
+<Note>
+  If you don't sell your entire catalog on nocnoc, you can filter by a custom column called `nocnocEnabled`. Contact [Sellercloud Support](https://sellercloud.com/help/omnichannel-ecommerce/seller-cloud-support/) to set up custom columns.
+</Note>
+
+1. Navigate to **Settings → Scheduled Tasks** and click **Create**.
+2. Fill in:
+   - **Company** — select the nocnoc-designated company
+   - **Task Type** — `Export Products`
+   - **Task Name** — e.g. `nocnoc Export Inventory`
+   - **Start Date** — the first date the task will run automatically
+3. Click **Create**, then open the task and click **Edit**:
+   - **Frequency** — set to run every 30 min to 1 hour
+   - **User ID** — select your username
+   - **Saved Search** — select your Product Saved View
+   - **Export Via** — `Export Mapping Profile: nocnoc Inventory Export`
+   - **File Name** — must be `inventory.csv` (must end with `.csv`)
+   - **Export To** — `FTP`
+   - Fill in the FTP credentials provided by nocnoc
+   - Enable **Use Passive** and **Use Secure FTP**
+4. In the **General** panel, toggle the task to **Enabled**.
+5. Click **Save**.
+
+### Tracking export task
+
+Sends fulfilled order tracking information to nocnoc. Requires a [Saved View](https://sellercloud.com/help/omnichannel-ecommerce/saved-searches/) for orders filtered by **Company**, **Order Status: In Process or Completed**, and **Shipping Status: Shipped**.
+
+1. Navigate to **Settings → Scheduled Tasks** and click **Create**.
+2. Fill in:
+   - **Company** — select the nocnoc-designated company
+   - **Task Type** — `Export Orders`
+   - **Task Name** — e.g. `nocnoc Tracking Export`
+   - **Start Date** — the first date the task will run automatically
+3. Click **Create**, then open the task and click **Edit**:
+   - **Frequency** — every 12 hours (tracking doesn't need to be real-time)
+   - **User ID** — select your username
+   - **Saved Search** — select your Order Saved View
+   - **Export Via** — `Export Mapping Profile: nocnoc Tracking Export`
+   - **File Name** — must be `tracking` (must NOT end with `.csv`)
+   - Enable **Mark Orders As Exported** and **This Is Tracking Export**
+   - **Export To** — `FTP`
+   - Fill in the FTP credentials provided by nocnoc
+   - Enable **Use Passive** and **Use Secure FTP**
+4. In the **General** panel, toggle the task to **Enabled**.
+5. Click **Save**.
+
+### Order import task
+
+Imports new nocnoc orders into Sellercloud on a regular schedule.
+
+1. Navigate to **Settings → Scheduled Tasks** and click **Create**.
+2. Fill in:
+   - **Company** — select the nocnoc-designated company
+   - **Task Type** — `Import Orders`
+   - **Task Name** — e.g. `nocnoc Order Import`
+   - **Start Date** — the first date the task will run automatically
+3. Click **Create**, then open the task and click **Edit**:
+   - **Frequency** — every 30 minutes
+   - **Create Orders for Company** — choose the nocnoc-designated company
+   - **Plugin** — `Profile: nocnoc Orders`
+   - **Import From** — `FTP`
+   - Fill in the FTP credentials provided by nocnoc
+   - Enable **Use Passive** and **Use Secure FTP**
+   - **File name** — `orders.csv` (must end with `.csv`)
+4. In the **General** panel, toggle the task to **Enabled**.
+5. Click **Save**.
+
+---
+
+<Note>
+  A video tutorial is available here: [Watch on Loom](https://www.loom.com/share/2149ad44adc84847ad3ea48cf44e0f65?sid=8ce9ba96-3761-40a8-8539-bbc1b6fdc6f8)
+</Note>
