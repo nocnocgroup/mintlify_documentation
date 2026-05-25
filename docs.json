@@ -33,19 +33,6 @@
             ]
           },
           {
-            "group": "Guides",
-            "pages": [
-              "api/guides/sending-packages"
-            ]
-          },
-          {
-            "group": "API Reference",
-            "pages": [
-              "api/api-reference/overview",
-              "api/api-reference/responses"
-            ]
-          },
-          {
             "group": "Products",
             "pages": [
               "api/api-reference/products/list-products",
@@ -65,8 +52,16 @@
           {
             "group": "Packages",
             "pages": [
+              "api/guides/sending-packages",
               "api/api-reference/packages/create-son-package",
               "api/api-reference/packages/create-father-package"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "api/api-reference/responses",
+              "api/api-reference/overview"
             ]
           }
         ]
