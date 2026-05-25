@@ -24,37 +24,12 @@ nocnoc uses API keys. Include your `SELLER_KEY` in the `X-Api-Key` header on eve
 
 ## Your first request
 
-Test your key with a simple products request:
-
 ```bash
 curl https://live.nocnocstore.com/api/v2/products \
   -H "X-Api-Key: YOUR_SELLER_KEY"
 ```
 
-```javascript
-const res = await fetch('https://live.nocnocstore.com/api/v2/products', {
-  headers: { 'X-Api-Key': 'YOUR_SELLER_KEY' }
-});
-const data = await res.json();
-```
-
-```python
-import requests
-
-res = requests.get(
-  'https://live.nocnocstore.com/api/v2/products',
-  headers={'X-Api-Key': 'YOUR_SELLER_KEY'}
-)
-```
-
-A `200` response means you're authenticated and ready to go. A `401` means your key is missing or incorrect.
-
-```json
-{
-  "code": 401,
-  "message": "Unauthorized"
-}
-```
+A `200` means you're in. A `401` means your key is missing or incorrect.
 
 <Card title="Explore the API Reference" icon="code" href="/api/api-reference/overview">
   Browse all available endpoints for products, orders, and packages.
