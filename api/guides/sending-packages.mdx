@@ -1,0 +1,32 @@
+---
+title: "Sending packages"
+description: "Learn how nocnoc's two-tier package model works and how to register shipments."
+---
+
+nocnoc manages shipments using two types of packages: **Son** and **Father**.
+
+- A **Son package** represents a single order ready to ship.
+- A **Father package** consolidates multiple Son packages into one bulk first-mile shipment.
+
+## Individual shipment
+
+When you have a single order to ship, create one Son package for it.
+
+<img src="https://files.readme.io/b8984e8-Individual_1.jpg" alt="Individual shipment" />
+
+## Consolidated shipment
+
+When you have multiple orders ready to ship together, create a Son package per order and then group them into a single Father package.
+
+<img src="https://files.readme.io/27df66d-Multiple_1.jpg" alt="Consolidated shipment" />
+
+## How it works
+
+<Steps>
+  <Step title="Create a Son package per order">
+    For each order you're ready to ship, call [Create Son package](/api/api-reference/packages/create-son-package) with the order reference ID, labels, and items.
+  </Step>
+  <Step title="Create a Father package (consolidated only)">
+    If you're shipping multiple orders together, call [Create Father package](/api/api-reference/packages/create-father-package) with the Son package IDs. Skip this step for individual shipments.
+  </Step>
+</Steps>

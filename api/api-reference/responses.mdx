@@ -1,0 +1,41 @@
+---
+title: "Response codes"
+description: "HTTP status codes and error structures returned by the nocnoc API."
+---
+
+The nocnoc API uses standard HTTP status codes to indicate the result of every request.
+
+## Status codes
+
+| Code | Meaning | When it happens |
+|------|---------|-----------------|
+| `200` | OK | Request succeeded. |
+| `201` | Created | Resource created successfully. |
+| `400` | Bad Request | Invalid payload, missing required fields, or duplicate SKU. |
+| `401` | Unauthorized | Missing or invalid API key. |
+| `404` | Not Found | The requested resource does not exist. |
+| `500` | Internal Server Error | An unexpected error occurred on nocnoc's side. |
+
+## Error response structure
+
+All errors return a consistent JSON structure:
+
+```json
+{
+  "code": 401,
+  "message": "Unauthorized"
+}
+```
+
+Validation errors (400) may include an additional `errors` array with field-level details:
+
+```json
+{
+  "code": 400,
+  "message": "Invalid Request Payload.",
+  "errors": [
+    "Sku should be between 1 character minimum and 45 characters maximum.",
+    "Brand should be between 1 character minimum and 45 characters maximum."
+  ]
+}
+```

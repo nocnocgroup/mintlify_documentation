@@ -1,0 +1,34 @@
+---
+title: "Overview"
+description: "The nocnoc REST API v2 — base URL, versioning, request format, and authentication."
+---
+
+The nocnoc API is a REST API that gives sellers programmatic access to products, orders, and packages.
+
+## Base URL
+
+All requests go to the live environment:
+
+```
+https://live.nocnocstore.com/api/v2
+```
+
+## Versioning
+
+The current version is **v2**. The version is included in the base URL.
+
+## Request format
+
+- All request bodies must be sent as JSON with the `Content-Type: application/json` header.
+- All responses are returned as JSON.
+
+## Authentication
+
+Every request requires your `SELLER_KEY` in the `X-Api-Key` header:
+
+```bash
+curl https://live.nocnocstore.com/api/v2/products \
+  -H "X-Api-Key: YOUR_SELLER_KEY"
+```
+
+A missing or invalid key returns a `401 Unauthorized` response. See [Response codes](/api/api-reference/responses) for the full list of error codes.
