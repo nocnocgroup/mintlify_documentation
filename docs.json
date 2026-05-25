@@ -77,5 +77,8 @@
   },
   "footerSocials": {
     "website": "https://nocnoc.com"
+  },
+  "custom": {
+    "css": ".rm-Header { background: #010533 !important; border-bottom: none !important; } .rm-Header::after { display: none !important; }"
   }
 }
