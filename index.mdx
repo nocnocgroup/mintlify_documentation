@@ -1,33 +1,133 @@
 ---
-title: "nocnoc Seller API"
-description: "One integration for your entire nocnoc operation."
+title: "nocnoc Developer Hub"
+description: "Everything you need to integrate with nocnoc and start selling across Latin America."
 mode: "custom"
 ---
 
-<div style={{background:"#0061FC",padding:"60px 40px 48px",marginLeft:"-24px",marginRight:"-24px",marginTop:"-24px"}}>
-  <div style={{maxWidth:"560px"}}>
-    <h1 style={{fontSize:"40px",fontWeight:"700",color:"#ffffff",lineHeight:"1.15",marginBottom:"16px"}}>One integration for your entire nocnoc operation</h1>
-    <p style={{fontSize:"16px",color:"rgba(255,255,255,0.78)",lineHeight:"1.6",marginBottom:"36px"}}>The nocnoc API lets you sync products, manage orders, and coordinate shipments from your system to the leading marketplaces across Latin America.</p>
-    <div style={{display:"flex",gap:"12px",flexWrap:"wrap"}}>
-      <a href="/quickstart" style={{background:"#A4F9FF",color:"#010533",fontWeight:"600",fontSize:"14px",padding:"12px 28px",borderRadius:"8px",textDecoration:"none"}}>Quick Start →</a>
-      <a href="/api-reference/overview" style={{background:"transparent",color:"#ffffff",fontSize:"14px",padding:"12px 28px",borderRadius:"8px",border:"1px solid rgba(255,255,255,0.35)",textDecoration:"none"}}>View endpoints</a>
+<div style={{background:"#0061FC",padding:"64px 40px 56px",marginLeft:"-24px",marginRight:"-24px",marginTop:"-24px"}}>
+  <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:"40px",flexWrap:"wrap"}}>
+    <div style={{maxWidth:"480px",flex:"1",minWidth:"280px"}}>
+      <p style={{fontSize:"11px",fontWeight:"600",letterSpacing:"0.1em",textTransform:"uppercase",color:"#A4F9FF",marginBottom:"12px"}}>Developer Hub</p>
+      <h1 style={{fontSize:"42px",fontWeight:"700",color:"#ffffff",lineHeight:"1.1",marginBottom:"16px"}}>One integration for your entire nocnoc operation</h1>
+      <p style={{fontSize:"16px",color:"rgba(255,255,255,0.75)",lineHeight:"1.6",marginBottom:"32px"}}>Connect your system to nocnoc using the method that works best for you — REST API, Shopify, SFTP, or your existing tools.</p>
+      <div style={{display:"flex",gap:"12px",flexWrap:"wrap"}}>
+        <a href="/api/quickstart" style={{background:"#A4F9FF",color:"#010533",fontWeight:"600",fontSize:"14px",padding:"12px 28px",borderRadius:"8px",textDecoration:"none"}}>Quick Start →</a>
+        <a href="/api/api-reference/overview" style={{background:"transparent",color:"#ffffff",fontSize:"14px",padding:"12px 28px",borderRadius:"8px",border:"1px solid rgba(255,255,255,0.35)",textDecoration:"none"}}>View API Reference</a>
+      </div>
+    </div>
+    <div style={{flex:"1",minWidth:"280px",maxWidth:"420px"}}>
+      <div style={{background:"#0a0f1e",borderRadius:"12px",padding:"20px 24px",border:"1px solid rgba(255,255,255,0.1)",fontFamily:"monospace",fontSize:"13px",lineHeight:"1.7"}}>
+        <div style={{display:"flex",gap:"6px",marginBottom:"16px"}}>
+          <div style={{width:"10px",height:"10px",borderRadius:"50%",background:"#ff5f57"}}></div>
+          <div style={{width:"10px",height:"10px",borderRadius:"50%",background:"#febc2e"}}></div>
+          <div style={{width:"10px",height:"10px",borderRadius:"50%",background:"#28c840"}}></div>
+        </div>
+        <div id="code-output" style={{color:"#e2e8f0",minHeight:"180px"}}></div>
+      </div>
     </div>
   </div>
 </div>
 
-<div style={{background:"#1a2744",padding:"40px",marginLeft:"-24px",marginRight:"-24px",marginBottom:"-24px"}}>
-  <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"16px"}}>
-    <div style={{background:"rgba(255,255,255,0.08)",borderRadius:"12px",padding:"24px",border:"0.5px solid rgba(255,255,255,0.12)"}}>
-      <p style={{fontSize:"11px",fontWeight:"600",letterSpacing:"0.08em",textTransform:"uppercase",color:"#A4F9FF",marginBottom:"8px"}}>Products</p>
-      <p style={{fontSize:"14px",color:"rgba(255,255,255,0.75)",lineHeight:"1.6",margin:"0"}}>Publish your catalog, update stock and prices across all your channels.</p>
+<div style={{background:"#010533",padding:"48px 40px",marginLeft:"-24px",marginRight:"-24px",marginBottom:"-24px"}}>
+  <p style={{fontSize:"11px",fontWeight:"600",letterSpacing:"0.1em",textTransform:"uppercase",color:"#A4F9FF",marginBottom:"24px"}}>Choose your integration</p>
+  <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))",gap:"14px"}}>
+
+    <a href="/api/introduction" style={{textDecoration:"none"}}>
+      <div style={{background:"rgba(255,255,255,0.07)",borderRadius:"12px",padding:"24px",border:"1px solid rgba(164,249,255,0.25)",cursor:"pointer",transition:"all 0.2s"}}>
+        <div style={{fontSize:"22px",marginBottom:"12px"}}>⚡</div>
+        <p style={{fontSize:"14px",fontWeight:"600",color:"#ffffff",marginBottom:"6px"}}>REST API</p>
+        <p style={{fontSize:"12px",color:"rgba(255,255,255,0.55)",margin:"0",lineHeight:"1.5"}}>Full programmatic control over products, orders and packages.</p>
+        <p style={{fontSize:"11px",color:"#A4F9FF",marginTop:"12px",marginBottom:"0"}}>Get started →</p>
+      </div>
+    </a>
+
+    <div style={{background:"rgba(255,255,255,0.03)",borderRadius:"12px",padding:"24px",border:"0.5px solid rgba(255,255,255,0.08)",opacity:"0.6",cursor:"default"}}>
+      <div style={{fontSize:"22px",marginBottom:"12px"}}>🛍️</div>
+      <p style={{fontSize:"14px",fontWeight:"600",color:"#ffffff",marginBottom:"6px"}}>Shopify</p>
+      <p style={{fontSize:"12px",color:"rgba(255,255,255,0.45)",margin:"0",lineHeight:"1.5"}}>Sync your Shopify store directly with nocnoc.</p>
+      <p style={{fontSize:"11px",color:"rgba(164,249,255,0.4)",marginTop:"12px",marginBottom:"0"}}>Coming soon</p>
     </div>
-    <div style={{background:"rgba(255,255,255,0.08)",borderRadius:"12px",padding:"24px",border:"0.5px solid rgba(255,255,255,0.12)"}}>
-      <p style={{fontSize:"11px",fontWeight:"600",letterSpacing:"0.08em",textTransform:"uppercase",color:"#A4F9FF",marginBottom:"8px"}}>Orders</p>
-      <p style={{fontSize:"14px",color:"rgba(255,255,255,0.75)",lineHeight:"1.6",margin:"0"}}>Retrieve and manage incoming orders from all your marketplaces.</p>
+
+    <div style={{background:"rgba(255,255,255,0.03)",borderRadius:"12px",padding:"24px",border:"0.5px solid rgba(255,255,255,0.08)",opacity:"0.6",cursor:"default"}}>
+      <div style={{fontSize:"22px",marginBottom:"12px"}}>🔄</div>
+      <p style={{fontSize:"14px",fontWeight:"600",color:"#ffffff",marginBottom:"6px"}}>Goflow</p>
+      <p style={{fontSize:"12px",color:"rgba(255,255,255,0.45)",margin:"0",lineHeight:"1.5"}}>Connect via Goflow for automated order management.</p>
+      <p style={{fontSize:"11px",color:"rgba(164,249,255,0.4)",marginTop:"12px",marginBottom:"0"}}>Coming soon</p>
     </div>
-    <div style={{background:"rgba(255,255,255,0.08)",borderRadius:"12px",padding:"24px",border:"0.5px solid rgba(255,255,255,0.12)"}}>
-      <p style={{fontSize:"11px",fontWeight:"600",letterSpacing:"0.08em",textTransform:"uppercase",color:"#A4F9FF",marginBottom:"8px"}}>Sending Packages</p>
-      <p style={{fontSize:"14px",color:"rgba(255,255,255,0.75)",lineHeight:"1.6",margin:"0"}}>Register individual or consolidated shipments for first-mile delivery.</p>
+
+    <div style={{background:"rgba(255,255,255,0.03)",borderRadius:"12px",padding:"24px",border:"0.5px solid rgba(255,255,255,0.08)",opacity:"0.6",cursor:"default"}}>
+      <div style={{fontSize:"22px",marginBottom:"12px"}}>📁</div>
+      <p style={{fontSize:"14px",fontWeight:"600",color:"#ffffff",marginBottom:"6px"}}>SFTP</p>
+      <p style={{fontSize:"12px",color:"rgba(255,255,255,0.45)",margin:"0",lineHeight:"1.5"}}>File-based integration for bulk catalog and order management.</p>
+      <p style={{fontSize:"11px",color:"rgba(164,249,255,0.4)",marginTop:"12px",marginBottom:"0"}}>Coming soon</p>
     </div>
+
+    <div style={{background:"rgba(255,255,255,0.03)",borderRadius:"12px",padding:"24px",border:"0.5px solid rgba(255,255,255,0.08)",opacity:"0.6",cursor:"default"}}>
+      <div style={{fontSize:"22px",marginBottom:"12px"}}>☁️</div>
+      <p style={{fontSize:"14px",fontWeight:"600",color:"#ffffff",marginBottom:"6px"}}>Sellercloud</p>
+      <p style={{fontSize:"12px",color:"rgba(255,255,255,0.45)",margin:"0",lineHeight:"1.5"}}>Manage multichannel operations through Sellercloud.</p>
+      <p style={{fontSize:"11px",color:"rgba(164,249,255,0.4)",marginTop:"12px",marginBottom:"0"}}>Coming soon</p>
+    </div>
+
   </div>
 </div>
+
+<script>{`
+(function() {
+  const lines = [
+    { text: '$ curl https://live.nocnocstore.com/api/v2/products \\\\', color: '#e2e8f0' },
+    { text: '  -H "X-Api-Key: YOUR_SELLER_KEY"', color: '#A4F9FF' },
+    { text: '', color: '' },
+    { text: '{', color: '#e2e8f0' },
+    { text: '  "products": [', color: '#e2e8f0' },
+    { text: '    {', color: '#e2e8f0' },
+    { text: '      "sku": "PROD-001",', color: '#98d4a3' },
+    { text: '      "title": "Wireless Headphones",', color: '#98d4a3' },
+    { text: '      "available_quantity": 150,', color: '#98d4a3' },
+    { text: '      "price": 49.99,', color: '#fbbf24' },
+    { text: '      "status": "active"', color: '#A4F9FF' },
+    { text: '    }', color: '#e2e8f0' },
+    { text: '  ],', color: '#e2e8f0' },
+    { text: '  "total": 24', color: '#e2e8f0' },
+    { text: '}', color: '#e2e8f0' },
+  ];
+  
+  const el = document.getElementById('code-output');
+  if (!el) return;
+  
+  let lineIndex = 0;
+  let charIndex = 0;
+  let html = '';
+  
+  function type() {
+    if (lineIndex >= lines.length) {
+      setTimeout(() => {
+        el.innerHTML = '';
+        html = '';
+        lineIndex = 0;
+        charIndex = 0;
+        type();
+      }, 3000);
+      return;
+    }
+    
+    const line = lines[lineIndex];
+    
+    if (charIndex < line.text.length) {
+      charIndex++;
+      const current = line.text.substring(0, charIndex);
+      const color = line.color || '#e2e8f0';
+      el.innerHTML = html + '<span style="color:' + color + '">' + current + '</span><span style="opacity:0.7">▋</span>';
+      setTimeout(type, 18);
+    } else {
+      html += '<div><span style="color:' + (line.color || '#e2e8f0') + '">' + line.text + '</span></div>';
+      el.innerHTML = html + '<span style="opacity:0.7">▋</span>';
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(type, line.text === '' ? 100 : 80);
+    }
+  }
+  
+  setTimeout(type, 800);
+})();
+`}</script>

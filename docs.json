@@ -17,58 +17,56 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Docs",
+        "tab": "Home",
+        "pages": ["index"]
+      },
+      {
+        "tab": "REST API",
         "groups": [
           {
             "group": "Get started",
             "pages": [
-              "index",
-              "introduction",
-              "quickstart",
-              "environments",
-              "authentication"
+              "api/introduction",
+              "api/quickstart",
+              "api/environments",
+              "api/authentication"
             ]
           },
           {
             "group": "Guides",
             "pages": [
-              "guides/sending-packages"
+              "api/guides/sending-packages"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
+          },
           {
-            "group": "Overview",
+            "group": "API Reference",
             "pages": [
-              "api-reference/overview",
-              "api-reference/responses"
+              "api/api-reference/overview",
+              "api/api-reference/responses"
             ]
           },
           {
             "group": "Products",
             "pages": [
-              "api-reference/products/list-products",
-              "api-reference/products/get-product",
-              "api-reference/products/create-product",
-              "api-reference/products/create-product-asin",
-              "api-reference/products/update-stock-price"
+              "api/api-reference/products/list-products",
+              "api/api-reference/products/get-product",
+              "api/api-reference/products/create-product",
+              "api/api-reference/products/create-product-asin",
+              "api/api-reference/products/update-stock-price"
             ]
           },
           {
             "group": "Orders",
             "pages": [
-              "api-reference/orders/list-orders",
-              "api-reference/orders/cancel-order"
+              "api/api-reference/orders/list-orders",
+              "api/api-reference/orders/cancel-order"
             ]
           },
           {
             "group": "Packages",
             "pages": [
-              "api-reference/packages/create-son-package",
-              "api-reference/packages/create-father-package"
+              "api/api-reference/packages/create-son-package",
+              "api/api-reference/packages/create-father-package"
             ]
           }
         ]
@@ -77,8 +75,5 @@
   },
   "footerSocials": {
     "website": "https://nocnoc.com"
-  },
-  "custom": {
-    "css": ".rm-Header { background: #010533 !important; border-bottom: none !important; } .rm-Header::after { display: none !important; }"
   }
 }
