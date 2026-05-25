@@ -1,0 +1,52 @@
+---
+title: "Cancel order"
+api: "POST https://live.nocnocstore.com/api/v2/orders/{order_id}/cancellation"
+description: "Submits a cancellation request for a specific order."
+---
+
+## Path parameters
+
+<ParamField path="order_id" type="string" required>
+  The ID of the order to cancel.
+</ParamField>
+
+## Returns
+
+A confirmation that the cancellation request was submitted.
+
+## Example request
+
+```bash
+curl -X POST https://live.nocnocstore.com/api/v2/orders/ORD-123456/cancellation \
+  -H "X-Api-Key: YOUR_SELLER_KEY"
+```
+
+<ResponseExample>
+```json 200
+{
+  "order_id": "ORD-123456",
+  "status": "cancelled"
+}
+```
+
+```json 400
+{
+  "code": 400,
+  "message": "Order cannot be cancelled."
+}
+```
+
+```json 401
+{
+  "code": 401,
+  "message": "Unauthorized"
+}
+```
+
+```json 404
+{
+  "code": 404,
+  "message": "Order not found."
+}
+```
+</ResponseExample>

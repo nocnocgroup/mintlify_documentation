@@ -1,0 +1,53 @@
+---
+title: "Create Father package"
+api: "POST https://live.nocnocstore.com/api/v2/packages"
+description: "Creates a Father package by consolidating multiple Son packages for bulk first-mile shipping."
+---
+
+<Note>
+  nocnoc manages two types of packages: **Son** and **Father**. You must first create individual [Son packages](/api/api-reference/packages/create-son-package) before grouping them into a Father package.
+</Note>
+
+## Body parameters
+
+<ParamField body="subpackages" type="array" required>
+  Array of Son package IDs to include in this Father package.
+</ParamField>
+
+<ParamField body="labels" type="array">
+  Array of label objects for the consolidated shipment. Minimum 1, maximum 10.
+</ParamField>
+
+## Returns
+
+The created Father package object confirming the consolidated shipment.
+
+## Example request
+
+```bash
+curl -X POST https://live.nocnocstore.com/api/v2/packages \
+  -H "X-Api-Key: YOUR_SELLER_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "subpackages": [
+      "PKG-SON-789",
+      "PKG-SON-790",
+      "PKG-SON-791"
+    ]
+  }'
+```
+
+<ResponseExample>
+```json 201
+{
+  "package_id": "PKG-FATHER-001",
+  "type": "father",
+  "subpackages": [
+    "PKG-SON-789",
+    "PKG-SON-790",
+    "PKG-SON-791"
+  ],
+  "status": "created"
+}
+```
+</ResponseExample>

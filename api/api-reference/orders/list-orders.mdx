@@ -1,0 +1,79 @@
+---
+title: "List orders"
+api: "GET https://live.nocnocstore.com/api/v2/orders"
+description: "Returns all orders associated with your account. Supports filtering by status, date range, and order ID."
+---
+
+## Query parameters
+
+<ParamField query="page" type="integer" required>
+  Page number. Pagination starts at index zero.
+</ParamField>
+
+<ParamField query="size" type="integer" required>
+  Number of results per page.
+</ParamField>
+
+<ParamField query="statuses" type="string">
+  Filter by order status. Possible values: `in_process`, `cancelled`.
+</ParamField>
+
+<ParamField query="date_from" type="date">
+  Filter orders created from this date.
+</ParamField>
+
+<ParamField query="date_to" type="date">
+  Filter orders created up to this date.
+</ParamField>
+
+<ParamField query="order_id" type="string">
+  Filter to retrieve a specific order by ID.
+</ParamField>
+
+## Returns
+
+A paginated list of orders associated with your account, including order ID, status, items, and shipping details.
+
+## Example request
+
+```bash
+curl "https://live.nocnocstore.com/api/v2/orders?page=0&size=10&statuses=in_process" \
+  -H "X-Api-Key: YOUR_SELLER_KEY"
+```
+
+<ResponseExample>
+```json 200
+{
+  "orders": [
+    {
+      "order_id": "ORD-123456",
+      "order_reference_id": "REF-123456",
+      "status": "in_process",
+      "created_at": "2024-01-15T10:30:00.00Z",
+      "items": [
+        {
+          "sku": "MY-SKU-001",
+          "title": "Wireless Headphones",
+          "quantity": 1,
+          "price": 29.99
+        }
+      ],
+      "shipping_address": {
+        "country": "BR",
+        "city": "São Paulo"
+      }
+    }
+  ],
+  "page": 0,
+  "size": 10,
+  "total": 45
+}
+```
+
+```json 401
+{
+  "code": 401,
+  "message": "Unauthorized"
+}
+```
+</ResponseExample>
