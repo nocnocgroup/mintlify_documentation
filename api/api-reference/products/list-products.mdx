@@ -22,6 +22,10 @@ description: "Returns all your published products. Supports filtering by date an
   Number of results per page.
 </ParamField>
 
+## Returns
+
+A paginated list of your published products, including SKU, title, price, stock, dimensions, images, and attributes.
+
 ## Example request
 
 ```bash
@@ -29,16 +33,41 @@ curl https://live.nocnocstore.com/api/v2/products?page=1&size=10 \
   -H "X-Api-Key: YOUR_SELLER_KEY"
 ```
 
-## Responses
+<ResponseExample>
+```json 200
+{
+  "products": [
+    {
+      "sku": "MY-SKU-001",
+      "brand": "My Brand",
+      "title": "Wireless Headphones",
+      "price": 29.99,
+      "currency_code": "USD",
+      "available_quantity": 100,
+      "condition": "NEW",
+      "status": "active",
+      "images": [
+        { "url": "https://example.com/image.jpg" }
+      ]
+    }
+  ],
+  "page": 1,
+  "size": 10,
+  "total": 24
+}
+```
 
-<ResponseField name="200" type="object">
-  Returns a paginated list of your published products.
-</ResponseField>
+```json 400
+{
+  "code": 400,
+  "message": "Invalid query parameter format."
+}
+```
 
-<ResponseField name="400" type="object">
-  Invalid query parameter format.
-</ResponseField>
-
-<ResponseField name="401" type="object">
-  Missing or invalid API key.
-</ResponseField>
+```json 401
+{
+  "code": 401,
+  "message": "Unauthorized"
+}
+```
+</ResponseExample>

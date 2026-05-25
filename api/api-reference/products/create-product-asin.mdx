@@ -23,34 +23,37 @@ description: "Creates a new product using an Amazon ASIN to auto-populate produc
 </ParamField>
 
 <ParamField body="currency_code" type="string">
-  Currency code (ISO). Currently only `USD` is supported.
+  Currency code (ISO). Required if `price` is provided. Currently only `USD` is supported.
 </ParamField>
 
-## Example request
+## Returns
 
-```bash
-curl -X POST https://live.nocnocstore.com/api/v2/products/ \
-  -H "X-Api-Key: YOUR_SELLER_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "sku": "MY-SKU-002",
-    "international_ids": { "asin": "B08N5WRWNW" },
-    "available_quantity": 50,
-    "price": 49.99,
-    "currency_code": "USD"
-  }'
+The created product object with data populated from the Amazon ASIN.
+
+<ResponseExample>
+```json 200
+{
+  "sku": "MY-SKU-002",
+  "title": "Product title from Amazon",
+  "brand": "Brand from Amazon",
+  "price": 49.99,
+  "currency_code": "USD",
+  "available_quantity": 50,
+  "status": "active"
+}
 ```
 
-## Responses
+```json 400
+{
+  "code": 400,
+  "message": "Sku already exists."
+}
+```
 
-<ResponseField name="200" type="object">
-  Product created successfully using ASIN data.
-</ResponseField>
-
-<ResponseField name="400" type="object">
-  Empty or non-JSON body, wrong data type, or duplicate SKU.
-</ResponseField>
-
-<ResponseField name="401" type="object">
-  Missing or invalid API key.
-</ResponseField>
+```json 401
+{
+  "code": 401,
+  "message": "Unauthorized"
+}
+```
+</ResponseExample>

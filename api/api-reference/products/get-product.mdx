@@ -10,6 +10,10 @@ description: "Returns the complete information for a single product identified b
   The unique SKU of the product.
 </ParamField>
 
+## Returns
+
+The complete product data for the given SKU, including price, stock, dimensions, images, and attributes.
+
 ## Example request
 
 ```bash
@@ -17,16 +21,46 @@ curl https://live.nocnocstore.com/api/v2/products/sku/MY-SKU-001 \
   -H "X-Api-Key: YOUR_SELLER_KEY"
 ```
 
-## Responses
+<ResponseExample>
+```json 200
+{
+  "sku": "MY-SKU-001",
+  "brand": "My Brand",
+  "title": "Wireless Headphones",
+  "price": 29.99,
+  "currency_code": "USD",
+  "available_quantity": 100,
+  "condition": "NEW",
+  "status": "active",
+  "images": [
+    { "url": "https://example.com/image.jpg" }
+  ],
+  "package_dimensions": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 10
+  },
+  "product_dimensions": {
+    "weight": 0.4,
+    "length": 18,
+    "width": 13,
+    "height": 8
+  }
+}
+```
 
-<ResponseField name="200" type="object">
-  Returns the complete product data for the given SKU.
-</ResponseField>
+```json 401
+{
+  "code": 401,
+  "message": "Unauthorized"
+}
+```
 
-<ResponseField name="401" type="object">
-  Missing or invalid API key.
-</ResponseField>
-
-<ResponseField name="404" type="object">
-  SKU not found.
-</ResponseField>
+```json 404
+{
+  "code": 404,
+  "message": "Sku not found"
+}
+```
+</ResponseExample>

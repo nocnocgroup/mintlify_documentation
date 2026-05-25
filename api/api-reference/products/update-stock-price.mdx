@@ -28,33 +28,41 @@ description: "Updates the stock quantity and/or price of an existing product."
   Currency code (ISO). Required if `price` is provided. Currently only `USD` is supported.
 </ParamField>
 
-## Example request
+## Returns
 
-```bash
-curl -X PATCH https://live.nocnocstore.com/api/v2/products/sku/MY-SKU-001 \
-  -H "X-Api-Key: YOUR_SELLER_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "available_quantity": 75,
-    "price": 24.99,
-    "currency_code": "USD"
-  }'
+The updated product object reflecting the new stock and/or price.
+
+<ResponseExample>
+```json 200
+{
+  "sku": "MY-SKU-001",
+  "available_quantity": 75,
+  "price": 24.99,
+  "currency_code": "USD"
+}
 ```
 
-## Responses
+```json 400
+{
+  "code": 400,
+  "message": "Invalid Request Payload.",
+  "errors": [
+    "available_quantity or price is required."
+  ]
+}
+```
 
-<ResponseField name="200" type="object">
-  Product updated successfully.
-</ResponseField>
+```json 401
+{
+  "code": 401,
+  "message": "Unauthorized"
+}
+```
 
-<ResponseField name="400" type="object">
-  Validation error — missing required fields or invalid values.
-</ResponseField>
-
-<ResponseField name="401" type="object">
-  Missing or invalid API key.
-</ResponseField>
-
-<ResponseField name="404" type="object">
-  SKU not found.
-</ResponseField>
+```json 404
+{
+  "code": 404,
+  "message": "Sku not found"
+}
+```
+</ResponseExample>
