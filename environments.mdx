@@ -1,0 +1,26 @@
+---
+title: "Environments"
+description: "nocnoc operates a single live API environment. Understand what this means before you start testing."
+---
+
+## Live environment
+
+nocnoc currently runs a single production environment. Every request you make — including during development and testing — is processed as a real transaction against real data.
+
+| Property | Value |
+|----------|-------|
+| Base URL | `https://live.nocnocstore.com/api/v2` |
+| Purpose | Production — requests generate real orders for real customers |
+| Status | Active |
+
+<Warning>
+  **All requests are real.** Any products you create or orders you place are visible to real customers. Make sure you coordinate with your Account Manager before running volume tests or bulk imports.
+</Warning>
+
+## Testing
+
+There is no sandbox environment available yet. If you need to validate your integration before going live, contact your Account Manager — they can coordinate a controlled testing setup with fake orders and products.
+
+<Card title="Need a testing environment?" icon="mail" href="mailto:support@nocnoc.com">
+  Reach out to your Account Manager to arrange a safe testing setup before going live.
+</Card>

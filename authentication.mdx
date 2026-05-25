@@ -1,0 +1,63 @@
+---
+title: "Authentication"
+description: "nocnoc uses API keys to authenticate requests. Learn how to set up your key and handle authentication errors."
+---
+
+nocnoc authenticates every request using an API key. You must include your key in the `X-Api-Key` header on every call — requests without a valid key will return a `401 Unauthorized` error.
+
+## Getting your API key
+
+Your `SELLER_KEY` is provided by the nocnoc team when you onboard as a seller. If you don't have one yet, contact your Account Manager.
+
+## Sending your key
+
+Include your key in the request header on every API call:
+
+```bash
+X-Api-Key: YOUR_SELLER_KEY
+```
+
+### Example request
+
+```bash
+curl --request GET \
+  --url https://live.nocnocstore.com/api/v2/products \
+  --header 'X-Api-Key: YOUR_SELLER_KEY'
+```
+
+```javascript
+const response = await fetch('https://live.nocnocstore.com/api/v2/products', {
+  headers: {
+    'X-Api-Key': 'YOUR_SELLER_KEY'
+  }
+});
+```
+
+```python
+import requests
+
+response = requests.get(
+  'https://live.nocnocstore.com/api/v2/products',
+  headers={'X-Api-Key': 'YOUR_SELLER_KEY'}
+)
+```
+
+## Authentication errors
+
+If your key is missing or invalid, the API returns:
+
+```json
+{
+  "code": 401,
+  "message": "Unauthorized"
+}
+```
+
+Common causes:
+- The `X-Api-Key` header is missing from the request
+- The key is incorrect or has been revoked
+- There's a typo or extra whitespace in the key value
+
+<Tip>
+  Store your API key as an environment variable — never hardcode it in your application source code or commit it to version control.
+</Tip>

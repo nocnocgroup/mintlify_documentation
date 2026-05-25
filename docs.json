@@ -20,16 +20,17 @@
         "tab": "Docs",
         "groups": [
           {
-            "group": "Primeros pasos",
+            "group": "Get started",
             "pages": [
               "index",
               "introduction",
+              "quickstart",
               "environments",
               "authentication"
             ]
           },
           {
-            "group": "Guías",
+            "group": "Guides",
             "pages": [
               "guides/sending-packages"
             ]
@@ -40,7 +41,7 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "Referencia",
+            "group": "Overview",
             "pages": [
               "api-reference/overview",
               "api-reference/responses"

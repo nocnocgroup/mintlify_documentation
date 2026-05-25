@@ -1,0 +1,148 @@
+---
+title: "Quick Start"
+description: "Make your first API call and walk through the full seller workflow — from authentication to shipping your first package."
+---
+
+This guide walks you through the complete nocnoc seller workflow. By the end, you'll have authenticated, published a product, retrieved an order, and registered a package for shipping.
+
+**Before you start:** Make sure you have your `SELLER_KEY` from the nocnoc team. If you don't have one, contact your Account Manager.
+
+---
+
+## Step 1 — Authenticate
+
+Every request requires your API key in the `X-Api-Key` header. Test your key with a simple products request:
+
+```bash
+curl --request GET \
+  --url https://live.nocnocstore.com/api/v2/products \
+  --header 'X-Api-Key: YOUR_SELLER_KEY'
+```
+
+A `200` response means you're authenticated. A `401` means your key is missing or incorrect — double-check the header name and value.
+
+---
+
+## Step 2 — Publish a product
+
+Create your first product listing. At minimum you need a SKU, brand, price, dimensions, and at least one image:
+
+```bash
+curl --request POST \
+  --url https://live.nocnocstore.com/api/v2/products \
+  --header 'X-Api-Key: YOUR_SELLER_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "sku": "MY-SKU-001",
+    "brand": "My Brand",
+    "available_quantity": 100,
+    "price": 29.99,
+    "currency_code": "USD",
+    "title": "My First Product",
+    "description": "Product description here.",
+    "description_language": "en",
+    "condition": "NEW",
+    "package_dimensions": {
+      "weight": 0.5,
+      "length": 20,
+      "width": 15,
+      "height": 10
+    },
+    "product_dimensions": {
+      "weight": 0.4,
+      "length": 18,
+      "width": 13,
+      "height": 8
+    },
+    "images": [
+      { "url": "https://example.com/image.jpg" }
+    ]
+  }'
+```
+
+A `200` response returns the created product. Note your SKU — you'll use it to manage this listing going forward.
+
+<Tip>
+  If you already sell on Amazon, use [Create Product by ASIN](/api-reference/products/create-product-asin) instead. It auto-populates product data from your existing Amazon listing.
+</Tip>
+
+---
+
+## Step 3 — Retrieve your orders
+
+Poll the Orders API to fetch incoming orders. You can filter by status, date range, or a specific order ID:
+
+```bash
+curl --request GET \
+  --url 'https://live.nocnocstore.com/api/v2/orders?page=1&size=10' \
+  --header 'X-Api-Key: YOUR_SELLER_KEY'
+```
+
+Each order in the response contains an `order_reference_id` — you'll need this to create packages in the next step.
+
+---
+
+## Step 4 — Register a Son package
+
+For each order you're ready to ship, create a Son package with the order reference ID, shipping labels, and items:
+
+```bash
+curl --request POST \
+  --url https://live.nocnocstore.com/api/v2/packages \
+  --header 'X-Api-Key: YOUR_SELLER_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "order_reference_id": "ORDER-ID-FROM-STEP-3",
+    "labels": [
+      {
+        "type": "first_mile",
+        "url": "https://example.com/label.pdf"
+      }
+    ],
+    "items": [
+      {
+        "sku": "MY-SKU-001",
+        "quantity": 1
+      }
+    ]
+  }'
+```
+
+---
+
+## Step 5 — Create a Father package (optional)
+
+If you're shipping multiple orders together, consolidate your Son packages into a Father package for bulk first-mile shipping:
+
+```bash
+curl --request POST \
+  --url https://live.nocnocstore.com/api/v2/packages \
+  --header 'X-Api-Key: YOUR_SELLER_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "type": "father",
+    "subpackages": [
+      "SON-PACKAGE-ID-1",
+      "SON-PACKAGE-ID-2"
+    ]
+  }'
+```
+
+---
+
+## What's next
+
+<CardGroup cols={2}>
+  <Card title="API Reference" icon="code" href="/api-reference/overview">
+    Browse all available endpoints with full parameter details.
+  </Card>
+  <Card title="Sending Packages" icon="truck" href="/guides/sending-packages">
+    Learn more about the Son and Father package model.
+  </Card>
+  <Card title="Products" icon="package" href="/api-reference/products/list-products">
+    Manage your full product catalog via the API.
+  </Card>
+  <Card title="Orders" icon="shopping-cart" href="/api-reference/orders/list-orders">
+    Retrieve and manage incoming orders.
+  </Card>
+</CardGroup>

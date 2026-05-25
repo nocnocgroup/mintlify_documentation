@@ -1,0 +1,52 @@
+---
+title: "Introduction"
+description: "Everything you need to integrate your catalog with nocnoc and start selling across Latin America."
+---
+
+nocnoc gives marketplace sellers a single REST API to publish products, handle orders, and manage shipments — all from `live.nocnocstore.com`. Whether you're building an integration from scratch or automating an existing catalog, this documentation covers everything you need.
+
+## What you can do
+
+<CardGroup cols={2}>
+  <Card title="Publish products" icon="package">
+    List your catalog, update stock and prices, and retrieve product data by SKU. Create listings manually or from an Amazon ASIN.
+  </Card>
+  <Card title="Manage orders" icon="shopping-cart">
+    Fetch incoming orders with filters for status and date range. Cancel orders when needed.
+  </Card>
+  <Card title="Ship packages" icon="truck">
+    Register individual Son packages per order, then consolidate them into Father packages for first-mile shipping.
+  </Card>
+  <Card title="Sell across LATAM" icon="globe">
+    One integration connects your catalog to the leading marketplaces across Latin America.
+  </Card>
+</CardGroup>
+
+## Base URL
+
+All requests go to the live environment:
+
+```
+https://live.nocnocstore.com/api/v2
+```
+
+## How to get started
+
+<Steps>
+  <Step title="Review environments">
+    Understand how the live environment works and what it means for testing. [Environments →](/environments)
+  </Step>
+  <Step title="Set up authentication">
+    Get your `SELLER_KEY` from the nocnoc team and learn how to pass it in every request. [Authentication →](/authentication)
+  </Step>
+  <Step title="Follow the Quick Start">
+    Make your first API call and walk through the full seller workflow end to end. [Quick Start →](/quickstart)
+  </Step>
+  <Step title="Explore the API reference">
+    Browse all available endpoints for products, orders, and packages. [API Reference →](/api-reference/overview)
+  </Step>
+</Steps>
+
+<Note>
+  nocnoc currently operates a single live environment. A sandbox is under development — contact your Account Manager to arrange testing with fake orders and products in the meantime.
+</Note>
