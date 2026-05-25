@@ -1,0 +1,92 @@
+{
+  "name": "nocnoc",
+  "logo": {
+    "light": "/logo/nocnoc-light.svg",
+    "dark": "/logo/nocnoc-dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#0061FC",
+    "light": "#A4F9FF",
+    "dark": "#010533",
+    "background": {
+      "light": "#F4F3EF",
+      "dark": "#010533"
+    }
+  },
+  "font": {
+    "headings": {
+      "family": "Poppins",
+      "weight": 600
+    },
+    "body": {
+      "family": "Manrope"
+    }
+  },
+  "topbar": {
+    "style": "gradient"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "API Reference",
+        "href": "/api-reference/overview"
+      },
+      {
+        "label": "Support",
+        "href": "mailto:support@nocnoc.com"
+      }
+    ]
+  },
+  "navigation": [
+    {
+      "group": "Primeros pasos",
+      "pages": [
+        "index",
+        "introduction",
+        "environments",
+        "authentication"
+      ]
+    },
+    {
+      "group": "Guías",
+      "pages": [
+        "guides/sending-packages"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/overview",
+        "api-reference/responses",
+        {
+          "group": "Products",
+          "pages": [
+            "api-reference/products/list-products",
+            "api-reference/products/get-product",
+            "api-reference/products/create-product",
+            "api-reference/products/create-product-asin",
+            "api-reference/products/update-stock-price"
+          ]
+        },
+        {
+          "group": "Orders",
+          "pages": [
+            "api-reference/orders/list-orders",
+            "api-reference/orders/cancel-order"
+          ]
+        },
+        {
+          "group": "Packages",
+          "pages": [
+            "api-reference/packages/create-son-package",
+            "api-reference/packages/create-father-package"
+          ]
+        }
+      ]
+    }
+  ],
+  "footerSocials": {
+    "website": "https://nocnoc.com"
+  }
+}
