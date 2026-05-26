@@ -1,0 +1,27 @@
+---
+title: "Managing nocnoc orders"
+description: "How nocnoc orders work in GoFlow — inner boxes, outer boxes, and labels."
+---
+
+nocnoc shipments use two boxes: an **inner box** and an **outer box**.
+
+- The **inner box** contains the product and is delivered to the end customer in Latin America
+- The **outer box** contains one or more inner boxes and ships to a nocnoc consolidation facility in the United States
+
+<Warning>
+  The shipping address in GoFlow is the U.S. nocnoc facility address — **not** the end customer's address.
+</Warning>
+
+## Labels
+
+GoFlow imports a **store carton label** from nocnoc, which you affix to the inner box for last-mile delivery. You then create a **small parcel label** for the first-mile shipment to the consolidation facility, which goes on the outer box.
+
+You can either ship each inner box in its own outer box, or consolidate multiple inner boxes into a single outer box with one shipping label.
+
+| | Inner Box | Outer Box |
+|---|---|---|
+| **Shipment leg** | Last mile | First mile |
+| **Contents** | Product | Inner boxes |
+| **Ships to** | End customer in Latin America | U.S. nocnoc facility |
+| **Label** | Store carton label | Small parcel label |
+| **Label created by** | nocnoc, imported to GoFlow | Seller |

@@ -101,6 +101,13 @@
               "goflow/enable-listings-import",
               "goflow/create-listings"
             ]
+          },
+          {
+            "group": "Orders",
+            "pages": [
+              "goflow/managing-orders",
+              "goflow/how-to-consolidate"
+            ]
           }
         ]
       },
