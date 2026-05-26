@@ -1,6 +1,44 @@
 ---
-title: "How to consolidate"
-description: "How to consolidate multiple nocnoc orders into a single shipment from GoFlow."
+title: "Consolidate orders"
+description: "How to consolidate multiple nocnoc orders into a single master package in GoFlow."
 ---
 
-_Content coming soon._
+When shipping multiple nocnoc orders together, you can consolidate them into a single master package with one tracking number. This reduces shipping costs and simplifies your operation.
+
+## How consolidation works
+
+1. Download all the nocnoc labels (store carton labels) for the orders you want to consolidate
+2. Print and attach each label to its corresponding individual package
+3. Place all individual packages inside a single master box
+4. Ship the master box and assign the same tracking number to every order in the consolidation
+
+## Download nocnoc labels in bulk
+
+<Steps>
+  <Step title="Select your orders">
+    Go to the **Orders** section and select all the orders you want to consolidate.
+  </Step>
+  <Step title="Open Actions">
+    Click **Actions** in the toolbar.
+  </Step>
+  <Step title="Download labels">
+    Click the three dots next to **Download Order Documents**, select **Store Carton Labels**, and click **Download**.
+  </Step>
+</Steps>
+
+<video
+  autoPlay
+  muted
+  loop
+  playsInline
+  src="/goflow/images/download-labels-bulk.mov"
+  style={{width: "100%", borderRadius: "8px", marginTop: "16px"}}
+/>
+
+## Assign the tracking number
+
+Once your master box is shipped, assign the same tracking number to every order in the consolidation.
+
+<Note>
+  Bulk tracking upload is currently in development. For now, you need to open each order individually in GoFlow and set the tracking number manually.
+</Note>
