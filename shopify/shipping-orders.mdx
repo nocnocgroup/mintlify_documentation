@@ -1,0 +1,65 @@
+---
+title: "Shipping your orders"
+description: "How to ship nocnoc orders from Shopify — consolidated shipments vs. individual orders."
+---
+
+When selling on nocnoc via Shopify, you have two ways to ship your orders: **consolidated shipments** (multiple orders in a single master box) or **individual orders** (one package per order). We recommend consolidating whenever possible — it significantly reduces shipping costs and makes your operation easier to scale. Individual shipping is available for specific cases where consolidation isn't practical.
+
+---
+
+## Scenario 1: Consolidated shipments
+
+<Note>
+  This is the **recommended** approach. Consolidating multiple orders into a single master box reduces your shipping costs and is the best way to scale your nocnoc operation.
+</Note>
+
+Since nocnoc's internal label isn't sent through the Shopify integration, you'll need to configure a custom packing slip in Shopify to identify each individual package inside the consolidation.
+
+Once your packing slip is configured:
+
+<Steps>
+  <Step title="Print the packing slip">
+    Print the packing slip from Shopify for each individual order.
+  </Step>
+  <Step title="Attach the packing slip">
+    Attach the packing slip to each individual package.
+  </Step>
+  <Step title="Pack the master box">
+    Place all packages inside the master box.
+  </Step>
+  <Step title="Generate a carrier label">
+    Generate a single carrier label for the master box.
+  </Step>
+  <Step title="Upload the tracking number">
+    Upload that tracking number to each individual order in Shopify.
+  </Step>
+</Steps>
+
+This way nocnoc can correctly identify every package inside the consolidation and match it to its tracking.
+
+<Card title="Ready to set up consolidation?" icon="barcode" href="/shopify/packing-slip">
+  See **Add nocnoc barcode to packing slip** →
+</Card>
+
+---
+
+## Scenario 2: Individual orders
+
+For cases where consolidation isn't possible, you can ship each order separately. No extra setup is needed — nocnoc doesn't require its internal label for individual shipments.
+
+<Steps>
+  <Step title="Pack the product">
+    Pack the product for shipping.
+  </Step>
+  <Step title="Generate a carrier label">
+    Generate a carrier label (UPS, FedEx, USPS, etc.).
+  </Step>
+  <Step title="Ship the package">
+    Ship the package.
+  </Step>
+  <Step title="Upload the tracking number">
+    Upload the tracking number in Shopify.
+  </Step>
+</Steps>
+
+Once the tracking is added, Shopify automatically notifies nocnoc and the order is marked as shipped.

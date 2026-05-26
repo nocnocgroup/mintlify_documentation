@@ -79,6 +79,7 @@
           {
             "group": "Guides",
             "pages": [
+              "shopify/shipping-orders",
               "shopify/packing-slip"
             ]
           }
