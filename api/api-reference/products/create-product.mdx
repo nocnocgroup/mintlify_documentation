@@ -43,44 +43,91 @@ description: "Creates a new product and adds it to your catalog. Requires full p
 </ParamField>
 
 <ParamField body="condition" type="string">
-  Product condition. One of: `NEW`, `USED`, `REFURBISHED`. Defaults to `NEW`.
+  Product condition. One of: `NEW`, `USED`, `OPEN_BOX`, `REFURBISHED_A`, `REFURBISHED_B`, `REFURBISHED_C`, `REFURBISHED_D`. Defaults to `NEW`.
 </ParamField>
 
 <ParamField body="package_dimensions" type="object" required>
-  Dimensions of the package (weight, length, width, height).
+  Dimensions of the package. Contains `size` (object with `unit`, `length`, `width`, `height`) and `weight` (object with `unit`, `value`). Size units: `cm`, `inch`, `inches`, `mm`. Weight units: `kg`, `lb`, `gram`, `kilogram`, `pound`.
 </ParamField>
 
 <ParamField body="product_dimensions" type="object" required>
-  Dimensions of the product itself (weight, length, width, height).
+  Dimensions of the product itself. Same structure as `package_dimensions`.
 </ParamField>
 
 <ParamField body="images" type="array" required>
-  Array of image objects. Minimum 1, maximum 10.
+  Array of image objects, each with a `source_url` field. Minimum 1, maximum 10.
 </ParamField>
 
 <ParamField body="international_ids" type="object">
-  Structure defining international identifiers (e.g. EAN, UPC).
+  International identifiers. Contains `gtin` (array of strings — Global Trade Item Number, e.g. EAN, UPC).
 </ParamField>
 
 <ParamField body="attributes" type="array">
-  Additional product attributes as key-value pairs.
+  Additional product attributes. Each object has `type` (one of: `COLOR`, `SIZE`) and `value` (string).
 </ParamField>
 
 ## Returns
 
 The created product object with all submitted fields confirmed.
 
+## Example request
+
+```bash
+curl -X POST https://live.nocnocstore.com/api/v2/products \
+  -H "X-Api-Key: YOUR_SELLER_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sku": "SKU-001",
+    "international_ids": { "gtin": ["4901234567890"] },
+    "brand": "BRAND",
+    "available_quantity": 20,
+    "price": 23,
+    "currency_code": "USD",
+    "package_dimensions": {
+      "size": { "unit": "cm", "length": 46, "width": 28, "height": 15 },
+      "weight": { "unit": "kg", "value": 3 }
+    },
+    "product_dimensions": {
+      "size": { "unit": "cm", "length": 42, "width": 26, "height": 13 },
+      "weight": { "unit": "kg", "value": 2 }
+    },
+    "images": [{ "source_url": "https://example.com/image.jpg" }],
+    "condition": "NEW",
+    "title": "Product Title",
+    "description_language": "en",
+    "description": "Product description",
+    "attributes": [
+      { "type": "COLOR", "value": "Red" },
+      { "type": "SIZE", "value": "Large" }
+    ]
+  }'
+```
+
 <ResponseExample>
-```json 200
+```json 201
 {
-  "sku": "MY-SKU-001",
-  "brand": "My Brand",
-  "title": "Wireless Headphones",
-  "price": 29.99,
+  "sku": "SKU-001",
+  "brand": "BRAND",
+  "available_quantity": 20,
+  "price": 23,
   "currency_code": "USD",
-  "available_quantity": 100,
+  "package_dimensions": {
+    "size": { "unit": "cm", "width": 28, "height": 15, "length": 46 },
+    "weight": { "value": 3, "unit": "kg" }
+  },
+  "product_dimensions": {
+    "size": { "unit": "cm", "width": 26, "height": 13, "length": 42 },
+    "weight": { "value": 2, "unit": "kg" }
+  },
+  "images": [{ "source_url": "https://example.com/image.jpg" }],
   "condition": "NEW",
-  "status": "active"
+  "title": "Product Title",
+  "description_language": "en",
+  "description": "Product description",
+  "attributes": [
+    { "type": "COLOR", "value": "Red" },
+    { "type": "SIZE", "value": "Large" }
+  ]
 }
 ```
 

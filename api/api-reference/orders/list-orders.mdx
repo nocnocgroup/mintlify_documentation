@@ -46,27 +46,37 @@ curl "https://live.nocnocstore.com/api/v2/orders?page=0&size=10&statuses=in_proc
 {
   "orders": [
     {
-      "order_id": "ORD-123456",
-      "order_reference_id": "REF-123456",
+      "tracking_id": "NC2202936",
+      "label_url": "https://www.live.nocnocstore.com/token/OL2342342.234234",
+      "created_at": "2025-05-16 08:39:29",
       "status": "in_process",
-      "created_at": "2024-01-15T10:30:00.00Z",
-      "items": [
+      "status_date": "2025-05-16 08:45:39",
+      "status_description": null,
+      "customer": {
+        "full_name": "Joe Doe",
+        "tax_id": "01564525295"
+      },
+      "products": [
         {
-          "sku": "MY-SKU-001",
-          "title": "Wireless Headphones",
+          "sku": "6291107456058",
           "quantity": 1,
-          "price": 29.99
+          "fob_price": "20.00"
         }
       ],
-      "shipping_address": {
-        "country": "BR",
-        "city": "São Paulo"
+      "delivery_address": {
+        "contact_name": "Nocnoc",
+        "belongs_to": "NOCNOC",
+        "contact_phone": "3055134548 Ext 70129",
+        "street": "13150 NW 25TH ST",
+        "street_2": "",
+        "zipcode": "33182-1532",
+        "region": "Florida",
+        "city": "Miami",
+        "country": "US",
+        "deadline": "2025-05-18"
       }
     }
-  ],
-  "page": 0,
-  "size": 10,
-  "total": 45
+  ]
 }
 ```
 

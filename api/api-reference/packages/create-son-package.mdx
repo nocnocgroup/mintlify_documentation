@@ -15,11 +15,16 @@ description: "Creates a Son package for a single order. Each order requires its 
 </ParamField>
 
 <ParamField body="labels" type="array" required>
-  Array of label objects containing first-mile tracking and nocnoc labels. Minimum 1, maximum 10.
+  Array of label objects. Minimum 1, maximum 10. Each object contains:
+  - `tracking_code` (string) — tracking code of the package
+  - `carrier` (string) — first-mile carrier (e.g. `"FedEx"`, `"UPS"`). Use `"nocnoc"` for a nocnoc label
+  - `url` (string) — URL to track the order
 </ParamField>
 
 <ParamField body="items" type="array" required>
-  Array of item objects inside the package. Minimum 1, maximum 10.
+  Array of item objects inside the package. Minimum 1, maximum 10. Each object contains:
+  - `sku` (string) — item SKU, between 1 and 45 characters
+  - `quantity` (integer) — quantity of the item, between 0 and 9999
 </ParamField>
 
 ## Returns
@@ -33,16 +38,17 @@ curl -X POST https://live.nocnocstore.com/api/v2/packages \
   -H "X-Api-Key: YOUR_SELLER_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "order_reference_id": "REF-123456",
+    "order_reference_id": "NC0000",
     "labels": [
       {
-        "type": "first_mile",
-        "url": "https://example.com/label.pdf"
+        "tracking_code": "1234",
+        "carrier": "nocnoc",
+        "url": "https://tracking.example.com/1234"
       }
     ],
     "items": [
       {
-        "sku": "MY-SKU-001",
+        "sku": "SKU00000000",
         "quantity": 1
       }
     ]
@@ -52,10 +58,7 @@ curl -X POST https://live.nocnocstore.com/api/v2/packages \
 <ResponseExample>
 ```json 201
 {
-  "package_id": "PKG-SON-789",
-  "order_reference_id": "REF-123456",
-  "type": "son",
-  "status": "created"
+  "package_id": "PK111"
 }
 ```
 </ResponseExample>

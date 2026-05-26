@@ -19,16 +19,26 @@ The current version is **v2**. The version is included in the base URL.
 
 ## Request format
 
-- All request bodies must be sent as JSON with the `Content-Type: application/json` header.
+- All request bodies must be sent as JSON with the `Content-Type: application/json` header. Requests without it will return a `415 Unsupported Media Type` error.
 - All responses are returned as JSON.
 
 ## Authentication
 
-Every request requires your `SELLER_KEY` in the `X-Api-Key` header:
+Every request requires two headers:
+
+| Header | Value |
+|--------|-------|
+| `X-Api-Key` | Your seller API key |
+| `Content-Type` | `application/json` |
 
 ```bash
 curl https://live.nocnocstore.com/api/v2/products \
-  -H "X-Api-Key: YOUR_SELLER_KEY"
+  -H "X-Api-Key: YOUR_SELLER_KEY" \
+  -H "Content-Type: application/json"
 ```
 
 A missing or invalid key returns a `401 Unauthorized` response. See [Response codes](/api/api-reference/responses) for the full list of error codes.
+
+<Note>
+  No IP allowlist is required. The API accepts requests from any origin IP address.
+</Note>

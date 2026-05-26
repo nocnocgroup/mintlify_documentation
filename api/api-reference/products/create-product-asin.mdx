@@ -11,7 +11,7 @@ description: "Creates a new product using an Amazon ASIN to auto-populate produc
 </ParamField>
 
 <ParamField body="international_ids" type="object" required>
-  Structure defining international identifiers. Must include the Amazon ASIN.
+  Must include `asin` as an array of strings. Example: `{"asin": ["B00QAIV7V2"]}`.
 </ParamField>
 
 <ParamField body="available_quantity" type="integer" required>
@@ -29,6 +29,21 @@ description: "Creates a new product using an Amazon ASIN to auto-populate produc
 ## Returns
 
 The created product object with data populated from the Amazon ASIN.
+
+## Example request
+
+```bash
+curl -X POST https://live.nocnocstore.com/api/v2/products/ \
+  -H "X-Api-Key: YOUR_SELLER_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sku": "SKU123",
+    "international_ids": { "asin": ["B00QAIV7V2"] },
+    "available_quantity": 10,
+    "price": 100,
+    "currency_code": "USD"
+  }'
+```
 
 <ResponseExample>
 ```json 200

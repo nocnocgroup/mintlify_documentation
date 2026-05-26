@@ -22,17 +22,14 @@ curl -X POST https://live.nocnocstore.com/api/v2/orders/ORD-123456/cancellation 
 ```
 
 <ResponseExample>
-```json 200
-{
-  "order_id": "ORD-123456",
-  "status": "cancelled"
-}
+```json 201
+{}
 ```
 
 ```json 400
 {
   "code": 400,
-  "message": "Order cannot be cancelled."
+  "message": "An order issue already exists for order: order_id and type: cancellation_request and status: open"
 }
 ```
 
@@ -46,7 +43,13 @@ curl -X POST https://live.nocnocstore.com/api/v2/orders/ORD-123456/cancellation 
 ```json 404
 {
   "code": 404,
-  "message": "Order not found."
+  "message": "Order not found"
+}
+```
+
+```json 409
+{
+  "message": "Invalid Request"
 }
 ```
 </ResponseExample>

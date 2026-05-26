@@ -14,6 +14,8 @@ The nocnoc API uses standard HTTP status codes to indicate the result of every r
 | `400` | Bad Request | Invalid payload, missing required fields, or duplicate SKU. |
 | `401` | Unauthorized | Missing or invalid API key. |
 | `404` | Not Found | The requested resource does not exist. |
+| `409` | Conflict | The request conflicts with the current state of the resource. |
+| `415` | Unsupported Media Type | Missing `Content-Type: application/json` header. |
 | `500` | Internal Server Error | An unexpected error occurred on nocnoc's side. |
 
 ## Error response structure

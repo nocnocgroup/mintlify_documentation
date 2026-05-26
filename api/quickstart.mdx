@@ -22,11 +22,23 @@ nocnoc runs a single live environment. Every request you make is processed as a 
 
 nocnoc uses API keys. Include your `SELLER_KEY` in the `X-Api-Key` header on every request. Your key is provided by the nocnoc team — contact your Account Manager if you don't have one yet.
 
+Every request must also include the `Content-Type: application/json` header. Requests without it will return a `415 Unsupported Media Type` error.
+
+| Header | Value |
+|--------|-------|
+| `X-Api-Key` | Your seller API key |
+| `Content-Type` | `application/json` |
+
+<Note>
+  No IP allowlist configuration is required. The API accepts requests from any origin IP address.
+</Note>
+
 ## Your first request
 
 ```bash
 curl https://live.nocnocstore.com/api/v2/products \
-  -H "X-Api-Key: YOUR_SELLER_KEY"
+  -H "X-Api-Key: YOUR_SELLER_KEY" \
+  -H "Content-Type: application/json"
 ```
 
 A `200` response confirms your key is valid. A `401` indicates the key is missing or incorrect.
