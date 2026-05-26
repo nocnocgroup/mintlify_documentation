@@ -22,6 +22,8 @@ nocnoc requires a barcode on shipping labels to process your orders. Choose the 
 
 Access the **Manage Templates** section of the Order Printer plugin. Select the template you use for nocnoc orders and click **Edit Template**.
 
+<img src="/shopify/images/packing-slip-order-printer-editor.png" alt="Order Printer template editor" />
+
 ### Step 2: Add the barcode code
 
 Insert the following two code blocks into your template.
@@ -35,6 +37,8 @@ Insert the following two code blocks into your template.
 {% endif %}
 ```
 
+<img src="/shopify/images/packing-slip-capture-code.png" alt="Capture code in template editor" />
+
 **Code 2** — Adds the barcode and the `nocnoc OrderID: NCXXXXX` label. Add this **wherever you want** in your template. It only displays for nocnoc orders and won't affect the rest of your operation.
 
 ```liquid
@@ -45,6 +49,8 @@ Insert the following two code blocks into your template.
     {% endif %}
 </div>
 ```
+
+<img src="/shopify/images/packing-slip-barcode-code.png" alt="Barcode code in template editor" />
 
 Once you've made both changes, click **Save**.
 
@@ -59,6 +65,8 @@ Download the Barcode 39 Text font from Google Fonts:
 [https://fonts.google.com/specimen/Libre+Barcode+39+Text](https://fonts.google.com/specimen/Libre+Barcode+39+Text)
 
 Extract the `.zip` file and upload the `.ttf` file to your Shopify store. Go to **Content → Files** and click **Upload Files**.
+
+<img src="/shopify/images/packing-slip-upload-font.png" alt="Upload font file in Shopify Content Files" />
 
 <Note>
   Copy and save the URL that Shopify generates for your uploaded file — you'll need it in the next step.
@@ -92,6 +100,8 @@ Go to **Settings → Shipping and Delivery → Packing Slips Template** and add 
 {%- endif -%}
 ```
 
+<img src="/shopify/images/packing-slip-native-capture.png" alt="Capture code in native packing slip template" />
+
 **Code 3** — Adds the barcode and the `nocnoc OrderID: NCXXXXX` label. Add this **wherever you want** in your template. It only displays for nocnoc orders and won't affect the rest of your operation.
 
 ```liquid
@@ -102,5 +112,7 @@ Go to **Settings → Shipping and Delivery → Packing Slips Template** and add 
   {%- endif -%}
 </div>
 ```
+
+<img src="/shopify/images/packing-slip-native-barcode.png" alt="Barcode code in native packing slip template" />
 
 Once you've made all changes, click **Save**.
