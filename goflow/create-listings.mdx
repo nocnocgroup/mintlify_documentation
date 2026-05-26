@@ -1,0 +1,33 @@
+---
+title: "Creating nocnoc listings"
+description: "How to create nocnoc listings in GoFlow using Amazon ASINs."
+---
+
+nocnoc listings in GoFlow are created using Amazon ASINs. GoFlow looks up the listing details on Amazon and uses them to build your nocnoc catalog automatically — you only need to provide minimal data.
+
+## Creating listings in bulk
+
+<Steps>
+  <Step title="Open your nocnoc store">
+    From the sidebar, go to **Directory → Stores** and open your nocnoc store.
+  </Step>
+  <Step title="Upload your file">
+    In the upper-right corner, click the **Upload** icon and select **Create Listings**.
+  </Step>
+  <Step title="Provide your item numbers">
+    Upload your file — the only required column is **Item Number**.
+  </Step>
+</Steps>
+
+GoFlow will automatically fill in any missing fields (ASIN, price, SKU, unit of measure) by looking them up from your mapped Amazon listings.
+
+### Example file
+
+| Item Number | ASIN | Price | SKU | Unit of Measure |
+|-------------|------|-------|-----|-----------------|
+| ITEM-001 | B08N5WRWNW | 29.99 | SKU-001 | CS |
+| ITEM-002 | | | | |
+
+<Note>
+  In the example above, **ITEM-002** only requires the Item Number — GoFlow handles the rest by pulling the data from your mapped Amazon listings.
+</Note>

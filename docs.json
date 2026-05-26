@@ -91,7 +91,15 @@
           {
             "group": "Get started",
             "pages": [
+              "goflow/introduction",
               "goflow/setup"
+            ]
+          },
+          {
+            "group": "Listings",
+            "pages": [
+              "goflow/enable-listings-import",
+              "goflow/create-listings"
             ]
           }
         ]
