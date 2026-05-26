@@ -72,6 +72,7 @@
           {
             "group": "Get started",
             "pages": [
+              "shopify/introduction",
               "shopify/setup"
             ]
           },

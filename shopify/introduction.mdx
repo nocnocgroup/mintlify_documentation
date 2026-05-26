@@ -1,0 +1,49 @@
+---
+title: "Introduction"
+description: "How the Shopify integration works, what syncs automatically, and how prices are managed."
+---
+
+The Shopify integration lets you connect your existing Shopify store to nocnoc in just a few minutes — no custom development needed. Once connected, nocnoc syncs your catalog and your nocnoc orders flow directly into Shopify, so you can manage everything from a single place you already know.
+
+## How it works
+
+To set it up, you create a **custom app** inside your Shopify store which grants nocnoc access to your store. nocnoc handles the rest from its side.
+
+Once the integration is live, you can choose to import all your active Shopify products or select a specific subset. This catalog import doesn't happen automatically — once your integration is set up, just let your account manager know and they'll kick off the import for you. The same applies whenever you add new products and want them reflected in nocnoc.
+
+## What syncs automatically
+
+After your catalog is imported, the following stays in sync in real time via webhooks — no manual updates needed:
+
+<CardGroup cols={2}>
+  <Card title="Stock" icon="boxes-stacked">
+    Always reflects what's available in your Shopify store.
+  </Card>
+  <Card title="Prices" icon="tag">
+    Synced from Shopify, with flexible pricing options (see below).
+  </Card>
+  <Card title="Orders" icon="shopping-cart">
+    nocnoc orders appear directly in your Shopify dashboard.
+  </Card>
+  <Card title="Trackings" icon="truck">
+    Upload the tracking number in Shopify and nocnoc gets notified automatically.
+  </Card>
+</CardGroup>
+
+<Note>
+  New products are **not** synced automatically. If you add new products to your Shopify store and want them imported to nocnoc, contact your account manager and they'll run the import for you.
+</Note>
+
+## Price management
+
+You choose how nocnoc handles your prices — three options:
+
+| Option | Description |
+|--------|-------------|
+| **Use Shopify prices** | Your Shopify prices are used as-is in nocnoc. |
+| **Apply a discount** | A percentage discount is applied across your entire catalog. |
+| **Manual pricing** | Ignore Shopify prices and manage them manually from Seller Center. |
+
+<Warning>
+  Shopify is always the **source of truth** for stock and prices. Any manual changes made in Seller Center will be overwritten the next time Shopify sends an update.
+</Warning>
