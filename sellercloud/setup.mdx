@@ -36,6 +36,10 @@ Download the nocnoc templates before starting:
 4. Click **Template File**, find and select the downloaded template from your device.
 5. Click **Add**.
 
+<img src="/sellercloud/images/sc-image-1.png" alt="Create Export Profile — Inventory" style={{ marginTop: '16px' }} />
+
+<img src="/sellercloud/images/sc-image-2.png" alt="Create Export Profile — Tracking" style={{ marginTop: '16px' }} />
+
 ### Import profile
 
 1. Navigate to **Settings → Mapping Tools → Manage Import Mapping Profiles**.
@@ -52,6 +56,8 @@ Download the nocnoc templates before starting:
 4. Click **Template File**, find and select the downloaded template from your device.
 5. Click **Create**.
 
+<img src="/sellercloud/images/sc-image-3.png" alt="Create Import Profile — Orders" style={{ marginTop: '16px' }} />
+
 ## Map profile fields
 
 ### Inventory export profile
@@ -63,6 +69,8 @@ Go to **Settings → Mapping Tools → Manage Export Profiles → nocnoc Invento
 | `sku` | `bvc_Product.ID` |
 | `price` | `bvc_Product.SitePrice` |
 | `stock` | `bvc_Product.AggregateQty` |
+
+<img src="/sellercloud/images/sc-image-4.png" alt="Column Mapping — Inventory export fields" style={{ marginTop: '16px' }} />
 
 <Note>
   If you don't want to use the Site Price for your nocnoc listings, you can request a Product [Custom Column](https://sellercloud.com/help/omnichannel-ecommerce/custom-columns-overview/) and map that instead. Contact [Sellercloud Support](https://sellercloud.com/help/omnichannel-ecommerce/seller-cloud-support/) to set this up.
@@ -80,9 +88,13 @@ Go to **Settings → Mapping Tools → Manage Export Profiles → nocnoc Trackin
 | `SKU` | `bvc_OrderItem.ProductID` |
 | `Quantity` | `bvc_OrderItem.Qty` |
 
+<img src="/sellercloud/images/sc-image-5.png" alt="Column Mapping — Tracking export fields" style={{ marginTop: '16px' }} />
+
 <Warning>
   If your catalog uses parent/child SKU relationships and you want to send tracking for a child SKU, map `SKU` to `bvc_orderitem.productIDOriginal` instead of `bvc_orderitem.productID`.
 </Warning>
+
+<img src="/sellercloud/images/sc-image-6.png" alt="Column Mapping — Tracking with ProductIDOriginal" style={{ marginTop: '16px' }} />
 
 ### Order import profile
 
@@ -105,6 +117,8 @@ Go to **Settings → Mapping Tools → Manage Import Profiles → nocnoc Orders 
 | `ShippingPostalCode` | `Order_ShippingPostalCode` |
 | `ShippingCountryCode` | `Order_ShippingCountryCode` |
 
+<img src="/sellercloud/images/sc-image-7.png" alt="Column Mapping — Order import fields" style={{ marginTop: '16px' }} />
+
 ## Create scheduled tasks
 
 ### Inventory export task
@@ -121,15 +135,24 @@ Exports inventory and price feeds to nocnoc on a regular schedule. Requires a [S
    - **Task Type** — `Export Products`
    - **Task Name** — e.g. `nocnoc Export Inventory`
    - **Start Date** — the first date the task will run automatically
+
+<img src="/sellercloud/images/sc-image-8.png" alt="Create Scheduled Task — Export Products" style={{ marginTop: '16px' }} />
+
 3. Click **Create**, then open the task and click **Edit**:
    - **Frequency** — set to run every 30 min to 1 hour
    - **User ID** — select your username
    - **Saved Search** — select your Product Saved View
    - **Export Via** — `Export Mapping Profile: nocnoc Inventory Export`
    - **File Name** — must be `inventory.csv` (must end with `.csv`)
+
+<img src="/sellercloud/images/sc-image-9.png" alt="Details panel — Inventory export task configuration" style={{ marginTop: '16px' }} />
+
    - **Export To** — `FTP`
    - Fill in the FTP credentials provided by nocnoc
    - Enable **Use Passive** and **Use Secure FTP**
+
+<img src="/sellercloud/images/sc-image-10.png" alt="Export Options — FTP configuration for inventory export" style={{ marginTop: '16px' }} />
+
 4. In the **General** panel, toggle the task to **Enabled**.
 5. Click **Save**.
 
@@ -143,6 +166,9 @@ Sends fulfilled order tracking information to nocnoc. Requires a [Saved View](ht
    - **Task Type** — `Export Orders`
    - **Task Name** — e.g. `nocnoc Tracking Export`
    - **Start Date** — the first date the task will run automatically
+
+<img src="/sellercloud/images/sc-image-11.png" alt="Create Scheduled Task — Export Orders" style={{ marginTop: '16px' }} />
+
 3. Click **Create**, then open the task and click **Edit**:
    - **Frequency** — every 12 hours (tracking doesn't need to be real-time)
    - **User ID** — select your username
@@ -150,9 +176,15 @@ Sends fulfilled order tracking information to nocnoc. Requires a [Saved View](ht
    - **Export Via** — `Export Mapping Profile: nocnoc Tracking Export`
    - **File Name** — must be `tracking` (must NOT end with `.csv`)
    - Enable **Mark Orders As Exported** and **This Is Tracking Export**
+
+<img src="/sellercloud/images/sc-image-12.png" alt="Details panel — Tracking export task configuration" style={{ marginTop: '16px' }} />
+
    - **Export To** — `FTP`
    - Fill in the FTP credentials provided by nocnoc
    - Enable **Use Passive** and **Use Secure FTP**
+
+<img src="/sellercloud/images/sc-image-13.png" alt="Export Options — FTP configuration for tracking export" style={{ marginTop: '16px' }} />
+
 4. In the **General** panel, toggle the task to **Enabled**.
 5. Click **Save**.
 
@@ -166,14 +198,23 @@ Imports new nocnoc orders into Sellercloud on a regular schedule.
    - **Task Type** — `Import Orders`
    - **Task Name** — e.g. `nocnoc Order Import`
    - **Start Date** — the first date the task will run automatically
+
+<img src="/sellercloud/images/sc-image-14.png" alt="Create Scheduled Task — Import Orders" style={{ marginTop: '16px' }} />
+
 3. Click **Create**, then open the task and click **Edit**:
    - **Frequency** — every 30 minutes
    - **Create Orders for Company** — choose the nocnoc-designated company
    - **Plugin** — `Profile: nocnoc Orders`
+
+<img src="/sellercloud/images/sc-image-15.png" alt="Details panel — Order import task configuration" style={{ marginTop: '16px' }} />
+
    - **Import From** — `FTP`
    - Fill in the FTP credentials provided by nocnoc
    - Enable **Use Passive** and **Use Secure FTP**
    - **File name** — `orders.csv` (must end with `.csv`)
+
+<img src="/sellercloud/images/sc-image-16.png" alt="Import Options — FTP configuration for order import" style={{ marginTop: '16px' }} />
+
 4. In the **General** panel, toggle the task to **Enabled**.
 5. Click **Save**.
 
