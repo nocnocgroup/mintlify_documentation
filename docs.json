@@ -99,7 +99,8 @@
             "group": "Listings",
             "pages": [
               "goflow/enable-listings-import",
-              "goflow/create-listings"
+              "goflow/create-listings",
+              "goflow/nocnoc-pricing"
             ]
           },
           {
