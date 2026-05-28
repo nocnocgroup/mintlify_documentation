@@ -6,7 +6,7 @@ mode: "custom"
 
 <div style={{
   background: "linear-gradient(180deg, #0061FC 0%, #2AA1F2 100%)",
-  minHeight: "100vh",
+  minHeight: "auto",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -14,7 +14,7 @@ mode: "custom"
   marginRight: "-24px",
   marginTop: "-24px",
   marginBottom: "-24px",
-  padding: "0 40px",
+  padding: "48px 40px",
   textAlign: "center"
 }}>
   <div style={{maxWidth: "680px"}}>
@@ -74,45 +74,37 @@ mode: "custom"
   </div>
 </div>
 
-<div style={{
-  padding: "80px 40px 0",
-  textAlign: "center"
-}}>
-  <p style={{
-    fontSize: "12px",
-    fontWeight: "600",
-    letterSpacing: "0.15em",
-    textTransform: "uppercase",
-    color: "#0061FC",
-    marginBottom: "12px",
-    fontFamily: "'Manrope', sans-serif"
-  }}>GET TO KNOW</p>
+<div style={{ textAlign: 'center', padding: '56px 24px 8px' }}>
   <h2 style={{
-    fontSize: "40px",
-    fontWeight: "700",
-    lineHeight: "1.2",
-    marginBottom: "16px",
-    fontFamily: "'Poppins', sans-serif",
-    color: "#010533"
-  }}>Our integrations</h2>
+    fontSize: '36px',
+    fontWeight: '700',
+    color: '#0f172a',
+    margin: '0 0 16px',
+    lineHeight: '1.15',
+  }}>
+    Get to know{' '}
+    <span style={{ color: '#1a6cf4' }}>our integrations</span>
+  </h2>
   <p style={{
-    fontSize: "17px",
-    color: "#666",
-    lineHeight: "1.6",
-    marginBottom: "48px",
-    maxWidth: "560px",
-    marginLeft: "auto",
-    marginRight: "auto",
-    fontFamily: "'Manrope', sans-serif",
-    fontWeight: "500"
-  }}>Each integration serves a different setup. Pick the one that matches your stack.</p>
+    fontSize: '16px',
+    color: '#6b7280',
+    margin: '0 auto 0',
+    maxWidth: '480px',
+    lineHeight: '1.65',
+  }}>
+    Each integration serves a different setup.
+    Pick the one that matches your stack.
+  </p>
 </div>
 
 <div style={{
   display: 'grid',
   gridTemplateColumns: 'repeat(2, 1fr)',
   gap: '16px',
-  marginTop: '32px'
+  marginTop: '32px',
+  maxWidth: '800px',
+  marginLeft: 'auto',
+  marginRight: 'auto'
 }}>
 
   {/* Direct API */}
