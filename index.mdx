@@ -40,7 +40,7 @@ mode: "custom"
       fontWeight: "500"
     }}>Connect your system to nocnoc using the method that works best for you — API, Shopify, SFTP, or your existing tools.</p>
     <div style={{display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap"}}>
-      <a href="#integrations" style={{
+      <a href="#integrations" onClick={(e) => { e.preventDefault(); document.getElementById('integrations').scrollIntoView({ behavior: 'smooth' }); }} style={{
         background: "#ffffff",
         color: "#0061FC",
         fontWeight: "700",
@@ -48,7 +48,8 @@ mode: "custom"
         padding: "16px 40px",
         borderRadius: "50px",
         textDecoration: "none",
-        fontFamily: "'Manrope', sans-serif"
+        fontFamily: "'Manrope', sans-serif",
+        cursor: "pointer"
       }}>Get started →</a>
       <a href="/api/api-reference/overview" style={{
         background: "transparent",
