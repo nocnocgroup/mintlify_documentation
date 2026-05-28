@@ -73,3 +73,60 @@ mode: "custom"
     </div>
   </div>
 </div>
+
+<div style={{
+  padding: "80px 40px 0",
+  textAlign: "center"
+}}>
+  <p style={{
+    fontSize: "12px",
+    fontWeight: "600",
+    letterSpacing: "0.15em",
+    textTransform: "uppercase",
+    color: "#0061FC",
+    marginBottom: "12px",
+    fontFamily: "'Manrope', sans-serif"
+  }}>GET TO KNOW</p>
+  <h2 style={{
+    fontSize: "40px",
+    fontWeight: "700",
+    lineHeight: "1.2",
+    marginBottom: "16px",
+    fontFamily: "'Poppins', sans-serif",
+    color: "#010533"
+  }}>Our integrations</h2>
+  <p style={{
+    fontSize: "17px",
+    color: "#666",
+    lineHeight: "1.6",
+    marginBottom: "48px",
+    maxWidth: "560px",
+    marginLeft: "auto",
+    marginRight: "auto",
+    fontFamily: "'Manrope', sans-serif",
+    fontWeight: "500"
+  }}>Each integration serves a different setup. Pick the one that matches your stack.</p>
+</div>
+
+<CardGroup cols={2}>
+  <Card title="Direct API" icon="code" href="/api/introduction">
+    Full control via REST. Publish products, sync stock and manage orders programmatically from any system.
+
+    [Authentication](/api/quickstart) · [Quick Start](/api/quickstart) · [API Reference](/api/api-reference/overview)
+  </Card>
+  <Card title="Shopify" icon="bag-shopping" href="/shopify/introduction">
+    Connect your Shopify store in minutes. Catalog and orders sync automatically via webhooks — no custom dev needed.
+
+    [Setup guide](/shopify/setup) · [What syncs automatically](/shopify/introduction) · [Managing orders](/shopify/shipping-orders)
+  </Card>
+  <Card title="GoFlow" icon="arrows-rotate" href="/goflow/introduction">
+    Already using GoFlow? Connect your OMS natively and manage listings, orders and pricing from a single place.
+
+    [Integration setup](/goflow/setup) · [Link existing products](/goflow/enable-listings-import) · [Managing orders](/goflow/managing-orders)
+  </Card>
+  <Card title="Sellercloud" icon="server" href="/sellercloud/setup">
+    Sync inventory and orders with nocnoc via scheduled FTP exports. Templates provided — no custom development needed.
+
+    [Setup guide](/sellercloud/setup) · [Download templates](/sellercloud/setup) · [Scheduled tasks](/sellercloud/setup)
+  </Card>
+</CardGroup>
