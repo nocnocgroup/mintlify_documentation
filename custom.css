@@ -1,0 +1,44 @@
+/* nocnoc — custom navbar styles */
+
+/* The background lives on #navbar-transition, not #navbar itself */
+#navbar-transition {
+  background-color: #0061FC !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Keep the background solid when scrolled (opaque state) */
+#navbar-transition[data-is-opaque="true"] {
+  background-color: #0061FC !important;
+}
+
+/* Text & icon colors */
+#navbar a,
+#navbar button,
+#navbar [role="tab"],
+#navbar span {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+#navbar svg {
+  stroke: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Logo */
+#navbar img.nav-logo {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Search / assistant pill */
+#navbar #search-bar-entry,
+#navbar #assistant-entry {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+#navbar #search-bar-entry *,
+#navbar #assistant-entry * {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
