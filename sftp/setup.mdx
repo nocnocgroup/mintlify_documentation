@@ -1,0 +1,51 @@
+---
+title: "Set up integration"
+description: "Credentials, templates, and configuration to connect your system to nocnoc via SFTP."
+---
+
+<Note>
+  Contact your account manager to activate the SFTP integration and receive your credentials before starting.
+</Note>
+
+## Credentials
+
+| Field | Value |
+|-------|-------|
+| **Server** | `sftp.nocnocstore.com` |
+| **Port** | `22` |
+| **User** | Provided by your account manager |
+| **Password** | Provided by your account manager |
+
+## Required templates
+
+Download nocnoc's templates and use them as-is. **The file names are mandatory** — the processing pipeline expects them exactly as shown. A file named differently will not be processed.
+
+| File | Direction | Description |
+|------|-----------|-------------|
+| `inventory.csv` | You → nocnoc | Stock and price updates |
+| `tracking.csv` | You → nocnoc | Tracking info for shipped orders |
+| `orders.csv` | nocnoc → you | New orders from the platform |
+| `cancelled_orders.csv` | nocnoc → you | Cancelled orders |
+
+<CardGroup cols={2}>
+  <Card title="inventory.csv" icon="download" href="/sftp/templates/inventory.csv">
+    Stock and price template
+  </Card>
+  <Card title="tracking.csv" icon="download" href="/sftp/templates/tracking.csv">
+    Tracking info template
+  </Card>
+  <Card title="orders.csv" icon="download" href="/sftp/templates/orders.csv">
+    Orders template (nocnoc → you)
+  </Card>
+  <Card title="cancelled_orders.csv" icon="download" href="/sftp/templates/cancelled_orders.csv">
+    Cancellations template (nocnoc → you)
+  </Card>
+</CardGroup>
+
+## Folder structure
+
+There's no fixed folder structure. You can organize the server however fits your setup — a single root folder, separate `/in` and `/out` directories, or one folder per data flow. Coordinate with your account manager to define the structure before going live.
+
+## Sync frequency
+
+How often you upload files depends on your system's configuration. **We recommend uploading approximately every hour.** nocnoc reads your files and writes its own on its own schedule from its side.

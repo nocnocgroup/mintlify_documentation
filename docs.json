@@ -122,6 +122,18 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "SFTP",
+        "groups": [
+          {
+            "group": "Get started",
+            "pages": [
+              "sftp/introduction",
+              "sftp/setup"
+            ]
+          }
+        ]
       }
     ]
   },

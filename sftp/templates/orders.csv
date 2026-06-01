@@ -1,0 +1,2 @@
+OrderId;SKU;Quantity;Price;CreatedAt;ShippingFirstName;ShippingLastName;ShippingAddress1;ShippingAddress2;ShippingCity;ShippingPhone;ShippingStateCode;ShippingPostalCode;ShippingCountryCode;Status;LabelUrl
+;;;;;;;;;;;;;;;

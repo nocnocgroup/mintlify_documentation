@@ -1,0 +1,34 @@
+---
+title: "Introduction"
+description: "How the SFTP integration works and how to connect your system to nocnoc via file transfer."
+---
+
+The SFTP integration connects your existing infrastructure to nocnoc through scheduled file transfers — no custom API development needed. If your platform already supports file-based data exchange, you can be up and running with minimal setup.
+
+## What is SFTP
+
+SFTP (Secure File Transfer Protocol) is a standard protocol for transferring files between two systems over an encrypted connection. Instead of calling an API, your system generates files on a schedule and deposits them on a shared server — nocnoc picks them up from there and does the same in return.
+
+## How it works
+
+The integration is fully bidirectional. Both you and nocnoc read and write to the same server (`sftp.nocnocstore.com`):
+
+**You upload to the server:**
+- `inventory.csv` — stock and price updates
+- `tracking.csv` — tracking information for orders you've shipped
+
+**nocnoc uploads to the server:**
+- `orders.csv` — new orders placed on the platform
+- `cancelled_orders.csv` — orders that have been cancelled
+
+Once the integration is active, nocnoc begins sending order and cancellation files on a regular schedule — even if they come empty.
+
+## Key concepts
+
+- **Exact file names are required.** The file names above are not suggestions — they're part of the integration contract. A file named differently will not be processed.
+- **Format consistency is critical.** Any change to the column structure or format breaks processing. Always use nocnoc's templates.
+- **nocnoc operates the server.** You connect using credentials your account manager provides — no infrastructure to set up on your end.
+
+## Product catalog
+
+Product creation is handled separately from the SFTP integration. Your catalog is loaded into nocnoc via Seller Center — either by you directly or by your account manager. Once your products are live, the SFTP integration takes over for ongoing inventory and price updates.
