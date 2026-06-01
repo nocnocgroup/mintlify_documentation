@@ -27,20 +27,36 @@ Download nocnoc's templates and use them as-is. **The file names are mandatory**
 | `orders.csv` | nocnoc → seller | New orders from the platform |
 | `cancelled_orders.csv` | nocnoc → seller | Cancelled orders |
 
-<CardGroup cols={2}>
-  <Card title="inventory.csv" icon="download" href="https://raw.githubusercontent.com/lucasbenmaor/mintlify/main/sftp/templates/inventory.csv">
-    Stock and price template
-  </Card>
-  <Card title="tracking.csv" icon="download" href="https://raw.githubusercontent.com/lucasbenmaor/mintlify/main/sftp/templates/tracking.csv">
-    Tracking info template
-  </Card>
-  <Card title="orders.csv" icon="download" href="https://raw.githubusercontent.com/lucasbenmaor/mintlify/main/sftp/templates/orders.csv">
-    Orders template (nocnoc → seller)
-  </Card>
-  <Card title="cancelled_orders.csv" icon="download" href="https://raw.githubusercontent.com/lucasbenmaor/mintlify/main/sftp/templates/cancelled_orders.csv">
-    Cancellations template (nocnoc → seller)
-  </Card>
-</CardGroup>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', margin: '16px 0 8px' }}>
+  <a href="data:text/csv;base64,c2t1LHByaWNlLHN0b2Nr" download="inventory.csv" style={{ border: '1px solid #e5e7eb', borderRadius: '10px', padding: '16px 18px', display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none', color: '#0f172a' }}>
+    <span style={{ fontSize: '22px', lineHeight: 1 }}>⬇️</span>
+    <div>
+      <div style={{ fontWeight: '600', fontSize: '13px', fontFamily: 'monospace' }}>inventory.csv</div>
+      <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '3px' }}>Stock and price template</div>
+    </div>
+  </a>
+  <a href="data:text/csv;base64,T3JkZXJJRCxUcmFja2luZ0NvZGUsQ2FycmllcixTS1UsUXVhbnRpdHk=" download="tracking.csv" style={{ border: '1px solid #e5e7eb', borderRadius: '10px', padding: '16px 18px', display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none', color: '#0f172a' }}>
+    <span style={{ fontSize: '22px', lineHeight: 1 }}>⬇️</span>
+    <div>
+      <div style={{ fontWeight: '600', fontSize: '13px', fontFamily: 'monospace' }}>tracking.csv</div>
+      <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '3px' }}>Tracking info template</div>
+    </div>
+  </a>
+  <a href="data:text/csv;base64,T3JkZXJJZDtTS1U7UXVhbnRpdHk7UHJpY2U7Q3JlYXRlZEF0O1NoaXBwaW5nRmlyc3ROYW1lO1NoaXBwaW5nTGFzdE5hbWU7U2hpcHBpbmdBZGRyZXNzMTtTaGlwcGluZ0FkZHJlc3MyO1NoaXBwaW5nQ2l0eTtTaGlwcGluZ1Bob25lO1NoaXBwaW5nU3RhdGVDb2RlO1NoaXBwaW5nUG9zdGFsQ29kZTtTaGlwcGluZ0NvdW50cnlDb2RlO1N0YXR1cztMYWJlbFVybAo7Ozs7Ozs7Ozs7Ozs7OzsK" download="orders.csv" style={{ border: '1px solid #e5e7eb', borderRadius: '10px', padding: '16px 18px', display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none', color: '#0f172a' }}>
+    <span style={{ fontSize: '22px', lineHeight: 1 }}>⬇️</span>
+    <div>
+      <div style={{ fontWeight: '600', fontSize: '13px', fontFamily: 'monospace' }}>orders.csv</div>
+      <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '3px' }}>Orders template (nocnoc → seller)</div>
+    </div>
+  </a>
+  <a href="data:text/csv;base64,Ik9yZGVySWQiLCJTS1UiLCJRdWFudGl0eSIsIlByaWNlIiwiQ3JlYXRlZEF0IiwiU2hpcHBpbmdGaXJzdE5hbWUiLCJTaGlwcGluZ0xhc3ROYW1lIiwiU2hpcHBpbmdBZGRyZXNzMSIsIlNoaXBwaW5nQWRkcmVzczIiLCJTaGlwcGluZ0NpdHkiLCJTaGlwcGluZ1Bob25lIiwiU2hpcHBpbmdTdGF0ZUNvZGUiLCJTaGlwcGluZ1Bvc3RhbENvZGUiLCJTaGlwcGluZ0NvdW50cnlDb2RlIiwiU3RhdHVzIiwiTGFiZWxVcmwi" download="cancelled_orders.csv" style={{ border: '1px solid #e5e7eb', borderRadius: '10px', padding: '16px 18px', display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none', color: '#0f172a' }}>
+    <span style={{ fontSize: '22px', lineHeight: 1 }}>⬇️</span>
+    <div>
+      <div style={{ fontWeight: '600', fontSize: '13px', fontFamily: 'monospace' }}>cancelled_orders.csv</div>
+      <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '3px' }}>Cancellations template (nocnoc → seller)</div>
+    </div>
+  </a>
+</div>
 
 ## Folder structure
 

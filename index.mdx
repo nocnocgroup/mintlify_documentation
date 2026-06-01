@@ -89,16 +89,14 @@ mode: "custom"
 </div>
 
 <div style={{
-  display: 'grid',
-  gridTemplateColumns: 'repeat(2, 1fr)',
-  gap: '16px',
   marginTop: '32px',
   maxWidth: '800px',
   marginLeft: 'auto',
   marginRight: 'auto',
-  paddingBottom: '80px',
-  gridTemplateColumns: 'repeat(2, 1fr)'
+  paddingBottom: '80px'
 }}>
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
 
   {/* Direct API */}
   <a href="/api/introduction" style={{
@@ -180,6 +178,10 @@ mode: "custom"
       <a href="/shopify/shipping-orders" style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: '13px', color: '#1a6cf4', fontWeight: '500', textDecoration: 'none' }}>Manage orders <span>→</span></a>
     </div>
   </a>
+
+</div>
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '16px' }}>
 
   {/* GoFlow */}
   <a href="/goflow/introduction" style={{
@@ -303,5 +305,7 @@ mode: "custom"
       <a href="/sftp/setup" style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: '13px', color: '#1a6cf4', fontWeight: '500', textDecoration: 'none' }}>Set up integration <span>→</span></a>
     </div>
   </a>
+
+</div>
 
 </div>
