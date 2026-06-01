@@ -1,0 +1,8 @@
+# Claude Code
+.claude/
+
+# Claude project instructions
+CLAUDE.md
+
+# OS
+.DS_Store
