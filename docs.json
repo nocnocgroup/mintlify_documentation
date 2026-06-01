@@ -12,7 +12,7 @@
     "dark": "#010533"
   },
   "topbar": {
-    "style": "default"
+    "style": "gradient"
   },
   "navigation": {
     "tabs": [
