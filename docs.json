@@ -14,6 +14,12 @@
   "topbar": {
     "style": "gradient"
   },
+  "api": {
+    "auth": {
+      "method": "key",
+      "name": "X-Api-Key"
+    }
+  },
   "navigation": {
     "tabs": [
       {
