@@ -8,6 +8,12 @@ description: "Updates the stock quantity and/or price of an existing product."
   At least one of `available_quantity` or `price` must be provided. If `price` is provided, `currency_code` is required.
 </Note>
 
+## Authorization
+
+<ParamField header="X-Api-Key" type="string" required>
+  Your seller API key. Provided by your nocnoc account manager.
+</ParamField>
+
 ## Path parameters
 
 <ParamField path="sku" type="string" required>

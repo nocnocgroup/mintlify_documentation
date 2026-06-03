@@ -4,6 +4,12 @@ api: "GET https://live.nocnocstore.com/api/v2/products/sku/{sku}"
 description: "Returns the complete information for a single product identified by its SKU."
 ---
 
+## Authorization
+
+<ParamField header="X-Api-Key" type="string" required>
+  Your seller API key. Provided by your nocnoc account manager.
+</ParamField>
+
 ## Path parameters
 
 <ParamField path="sku" type="string" required>

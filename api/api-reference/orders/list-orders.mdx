@@ -4,6 +4,12 @@ api: "GET https://live.nocnocstore.com/api/v2/orders"
 description: "Returns all orders associated with your account. Supports filtering by status, date range, and order ID."
 ---
 
+## Authorization
+
+<ParamField header="X-Api-Key" type="string" required>
+  Your seller API key. Provided by your nocnoc account manager.
+</ParamField>
+
 ## Query parameters
 
 <ParamField query="page" type="integer" required>

@@ -4,6 +4,12 @@ api: "GET https://live.nocnocstore.com/api/v2/products"
 description: "Returns all your published products. Supports filtering by date and pagination."
 ---
 
+## Authorization
+
+<ParamField header="X-Api-Key" type="string" required>
+  Your seller API key. Provided by your nocnoc account manager.
+</ParamField>
+
 ## Query parameters
 
 <ParamField query="updatedAtFrom" type="string">

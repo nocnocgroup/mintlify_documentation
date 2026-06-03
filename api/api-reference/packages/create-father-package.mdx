@@ -8,6 +8,12 @@ description: "Creates a Father package by consolidating multiple Son packages fo
   nocnoc manages two types of packages: **Son** and **Father**. You must first create individual [Son packages](/api/api-reference/packages/create-son-package) before grouping them into a Father package.
 </Note>
 
+## Authorization
+
+<ParamField header="X-Api-Key" type="string" required>
+  Your seller API key. Provided by your nocnoc account manager.
+</ParamField>
+
 ## Body parameters
 
 <ParamField body="subpackages" type="array" required>

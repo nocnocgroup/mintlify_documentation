@@ -8,6 +8,12 @@ description: "Creates a Son package for a single order. Each order requires its 
   nocnoc manages two types of packages: **Son** and **Father**. Create a Son package per order, then group multiple Son packages into a [Father package](/api/api-reference/packages/create-father-package) for consolidated first-mile shipping.
 </Note>
 
+## Authorization
+
+<ParamField header="X-Api-Key" type="string" required>
+  Your seller API key. Provided by your nocnoc account manager.
+</ParamField>
+
 ## Body parameters
 
 <ParamField body="order_reference_id" type="string" required>

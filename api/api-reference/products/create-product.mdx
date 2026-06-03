@@ -8,6 +8,12 @@ description: "Creates a new product and adds it to your catalog. Requires full p
   If you have an Amazon ASIN, use [Create product by ASIN](/api/api-reference/products/create-product-asin) instead — it auto-populates product data automatically.
 </Note>
 
+## Authorization
+
+<ParamField header="X-Api-Key" type="string" required>
+  Your seller API key. Provided by your nocnoc account manager.
+</ParamField>
+
 ## Body parameters
 
 <ParamField body="sku" type="string" required>
