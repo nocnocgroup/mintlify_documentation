@@ -31,6 +31,12 @@
   filter: brightness(0) invert(1) !important;
 }
 
+/* Authorization / Header param section — subtle blue accent */
+[role="button"][aria-label="Expand input section"]:first-child {
+  background-color: rgba(0, 97, 252, 0.06) !important;
+  border-left: 3px solid #0061FC !important;
+}
+
 /* Search / assistant pill */
 #navbar #search-bar-entry,
 #navbar #assistant-entry {
