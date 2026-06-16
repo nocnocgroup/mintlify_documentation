@@ -31,9 +31,13 @@ Once your packing slip is configured:
     Generate a single carrier label for the master box.
   </Step>
   <Step title="Upload the tracking number">
-    Upload that tracking number to each individual order in Shopify.
+    Upload the master tracking number to each individual order in Shopify. Every order inside the master box gets this same tracking number — there is no bulk option in Shopify, so each order must be updated one by one.
   </Step>
 </Steps>
+
+<Warning>
+  Shopify does not support bulk tracking uploads. You must open each order individually and enter the master tracking number. All orders inside the same master box share that single tracking number.
+</Warning>
 
 This way nocnoc can correctly identify every package inside the consolidation and match it to its tracking.
 
