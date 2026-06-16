@@ -90,8 +90,9 @@
             ]
           },
           {
-            "group": "Guides",
+            "group": "Orders",
             "pages": [
+              "shopify/managing-orders",
               "shopify/shipping-orders",
               "shopify/packing-slip"
             ]
