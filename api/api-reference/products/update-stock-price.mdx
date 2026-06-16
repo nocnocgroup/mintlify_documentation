@@ -4,6 +4,8 @@ api: "PATCH https://live.nocnocstore.com/api/v2/products/sku/{sku}"
 description: "Updates the stock quantity and/or price of an existing product."
 ---
 
+<Note>Requests go to the live environment — all actions are real.</Note>
+
 <Note>
   At least one of `available_quantity` or `price` must be provided. If `price` is provided, `currency_code` is required.
 </Note>
