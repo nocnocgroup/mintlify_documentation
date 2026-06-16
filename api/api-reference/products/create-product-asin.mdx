@@ -24,12 +24,12 @@ description: "Creates a new product using an Amazon ASIN to auto-populate produc
   Stock quantity. Between 0 and 9999.
 </ParamField>
 
-<ParamField body="price" type="number">
+<ParamField body="price" type="number" required>
   Price of the product. Up to 10 integer digits and 2 decimal places.
 </ParamField>
 
-<ParamField body="currency_code" type="string">
-  Currency code (ISO). Required if `price` is provided. Currently only `USD` is supported.
+<ParamField body="currency_code" type="string" required>
+  Currency code (ISO). Currently only `USD` is supported.
 </ParamField>
 
 ## Returns
