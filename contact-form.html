@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Manrope', sans-serif; background: transparent; padding: 4px 0 24px; }
+
+    .form-wrapper { display: flex; flex-direction: column; gap: 20px; }
+
+    .field label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+    .field label .hint { font-weight: 400; color: #9ca3af; }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 15px;
+      font-family: 'Manrope', sans-serif;
+      color: #374151;
+      background: #fff;
+      outline: none;
+      appearance: auto;
+    }
+    input:focus, select:focus, textarea:focus { border-color: #0061FC; }
+    textarea { resize: vertical; min-height: 130px; }
+
+    .radio-group { display: flex; gap: 10px; }
+    .radio-option {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      color: #374151;
+      font-family: 'Manrope', sans-serif;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .radio-option:has(input:checked) { border-color: #0061FC; background: #f0f5ff; }
+    .radio-option input { accent-color: #0061FC; width: 16px; height: 16px; cursor: pointer; }
+
+    #seller-name-field { display: none; }
+
+    button[type="submit"] {
+      background: #0061FC;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 36px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Manrope', sans-serif;
+      transition: background 0.15s;
+    }
+    button[type="submit"]:hover { background: #0052d6; }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    #success-msg {
+      display: none;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 28px 24px;
+      text-align: center;
+      color: #166534;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="success-msg">
+    ✅ Message sent!<br>Our team will get back to you as soon as possible.
+  </div>
+
+  <form id="contact-form" class="form-wrapper">
+    <input type="hidden" name="access_key" value="1f105179-38d6-435d-9d93-03b50d9e1553" />
+    <input type="hidden" name="subject" value="Support request — nocnoc Developer Hub" />
+    <input type="hidden" name="from_name" value="nocnoc Developer Hub" />
+    <input type="checkbox" name="botcheck" style="display:none" />
+
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your name" />
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" />
+    </div>
+
+    <div class="field">
+      <label for="integration">Integration</label>
+      <select id="integration" name="integration">
+        <option value="">Select your integration</option>
+        <option value="api">Direct API</option>
+        <option value="shopify">Shopify</option>
+        <option value="goflow">GoFlow</option>
+        <option value="sellercloud">Sellercloud</option>
+        <option value="sftp">SFTP</option>
+        <option value="new-integration">New integration — suggest a platform</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Do you have a nocnoc seller account?</label>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="has_account" value="yes" onchange="toggleSellerName(this)" /> Yes
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="has_account" value="no" onchange="toggleSellerName(this)" /> No
+        </label>
+      </div>
+    </div>
+
+    <div class="field" id="seller-name-field">
+      <label for="seller-name">Seller name</label>
+      <input type="text" id="seller-name" name="seller_name" placeholder="Your nocnoc seller name" />
+    </div>
+
+    <div class="field">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required placeholder="Describe your question or issue..."></textarea>
+    </div>
+
+    <div>
+      <button type="submit">Send message →</button>
+    </div>
+  </form>
+
+  <script>
+    function toggleSellerName(radio) {
+      document.getElementById('seller-name-field').style.display =
+        radio.value === 'yes' ? 'block' : 'none';
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(this)
+        });
+        const data = await res.json();
+        if (data.success) {
+          this.style.display = 'none';
+          document.getElementById('success-msg').style.display = 'block';
+        } else {
+          btn.textContent = 'Send message →';
+          btn.disabled = false;
+          alert('Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        btn.textContent = 'Send message →';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>

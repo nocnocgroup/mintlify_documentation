@@ -29,8 +29,7 @@
       {
         "tab": "Home",
         "pages": [
-          "index",
-          "contact"
+          "index"
         ]
       },
       {
@@ -145,6 +144,12 @@
               "sftp/setup"
             ]
           }
+        ]
+      },
+      {
+        "tab": "Need help?",
+        "pages": [
+          "contact"
         ]
       }
     ]
