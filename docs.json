@@ -14,12 +14,10 @@
   "topbar": {
     "style": "gradient"
   },
-  "topbarLinks": [
-    {
-      "name": "Need help?",
-      "url": "/contact"
-    }
-  ],
+  "topbarCta": {
+    "name": "Need help?",
+    "url": "/contact"
+  },
   "api": {
     "auth": {
       "method": "key",

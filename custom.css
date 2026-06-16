@@ -37,6 +37,13 @@
   border-left: 3px solid #0061FC !important;
 }
 
+/* Contact form — ensure fields are interactive */
+input, select, textarea, button[type="submit"] {
+  pointer-events: auto !important;
+  -webkit-user-select: auto !important;
+  user-select: auto !important;
+}
+
 /* Search / assistant pill */
 #navbar #search-bar-entry,
 #navbar #assistant-entry {
