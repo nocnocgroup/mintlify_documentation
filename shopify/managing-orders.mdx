@@ -24,17 +24,23 @@ Once the integration is set up, your nocnoc orders will flow directly into Shopi
 
 Every nocnoc order shares the same three identifiers, so you can always tell them apart at a glance:
 
-<CardGroup cols={3}>
-  <Card title="Customer name" icon="user">
-    All nocnoc orders appear under the customer name **Noc Noc** in Shopify.
-  </Card>
-  <Card title="Tag" icon="tag">
-    Every order is automatically tagged **nocnoc**, making filtering and bulk actions straightforward.
-  </Card>
-  <Card title="Shipping address" icon="location-dot">
-    Orders always ship to the same **nocnoc US warehouse address** — no end-customer addresses to manage.
-  </Card>
-</CardGroup>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '8px' }}>
+  <div style={{ border: '1px solid #e5e7eb', borderRadius: '10px', padding: '20px' }}>
+    <img src="https://cdn.jsdelivr.net/npm/@tabler/icons/icons/user.svg" style={{ width: '18px', height: '18px', marginBottom: '12px', opacity: 0.4, pointerEvents: 'none' }} alt="" />
+    <p style={{ fontSize: '15px', fontWeight: '600', color: '#0f172a', margin: '0 0 6px' }}>Customer name</p>
+    <p style={{ fontSize: '13px', color: '#6b7280', margin: 0, lineHeight: '1.6' }}>All nocnoc orders appear under the customer name Noc Noc in Shopify.</p>
+  </div>
+  <div style={{ border: '1px solid #e5e7eb', borderRadius: '10px', padding: '20px' }}>
+    <img src="https://cdn.jsdelivr.net/npm/@tabler/icons/icons/tag.svg" style={{ width: '18px', height: '18px', marginBottom: '12px', opacity: 0.4, pointerEvents: 'none' }} alt="" />
+    <p style={{ fontSize: '15px', fontWeight: '600', color: '#0f172a', margin: '0 0 6px' }}>Tag</p>
+    <p style={{ fontSize: '13px', color: '#6b7280', margin: 0, lineHeight: '1.6' }}>Every order is automatically tagged nocnoc, making filtering and bulk actions straightforward.</p>
+  </div>
+  <div style={{ border: '1px solid #e5e7eb', borderRadius: '10px', padding: '20px' }}>
+    <img src="https://cdn.jsdelivr.net/npm/@tabler/icons/icons/map-pin.svg" style={{ width: '18px', height: '18px', marginBottom: '12px', opacity: 0.4, pointerEvents: 'none' }} alt="" />
+    <p style={{ fontSize: '15px', fontWeight: '600', color: '#0f172a', margin: '0 0 6px' }}>Shipping address</p>
+    <p style={{ fontSize: '13px', color: '#6b7280', margin: 0, lineHeight: '1.6' }}>Orders always ship to the same nocnoc US warehouse address — no end-customer addresses to manage.</p>
+  </div>
+</div>
 
 <div style={{ borderLeft: '3px solid #0061FC', paddingLeft: '16px', marginTop: '24px', background: '#f8faff', borderRadius: '0 8px 8px 0', padding: '14px 16px' }}>
   <p style={{ margin: 0, fontSize: '14px', color: '#374151', lineHeight: '1.65' }}>
