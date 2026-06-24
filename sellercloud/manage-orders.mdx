@@ -3,17 +3,15 @@ title: "Ship your orders"
 description: "How to ship nocnoc orders from Sellercloud — consolidated shipments vs. individual orders."
 ---
 
-<p style={{ fontSize: '12px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 10px' }}>Order management</p>
-
-## Ship your orders
-
-When selling on nocnoc via Sellercloud, you have two ways to ship your orders: consolidated shipments (multiple orders in a single master box) or individual orders (one package per order). We recommend consolidating whenever possible — it significantly reduces shipping costs and makes your operation easier to scale. Individual shipping is available for specific cases where consolidation isn't practical.
+When selling on nocnoc via Sellercloud, you have two ways to ship your orders: **consolidated shipments** (multiple orders in a single master box) or **individual orders** (one package per order). We recommend consolidating whenever possible — it significantly reduces shipping costs and makes your operation easier to scale. Individual shipping is available for specific cases where consolidation isn't practical.
 
 ---
 
-### Scenario 1: Consolidated shipments
+## Scenario 1: Consolidated shipments
 
-This is the recommended approach. Consolidating multiple orders into a single master box reduces your shipping costs and is the best way to scale your nocnoc operation.
+<Note>
+  This is the **recommended** approach. Consolidating multiple orders into a single master box reduces your shipping costs and is the best way to scale your nocnoc operation.
+</Note>
 
 For consolidated shipments, you must configure a nocnoc-specific invoice in Sellercloud to use as a packing slip. This invoice is required — every individual package inside the master box must have it printed and physically attached before the box is sealed. Without it, nocnoc's warehouse won't be able to identify or process each order correctly.
 
@@ -41,9 +39,30 @@ Once your invoice is configured:
 
 Once the tracking export task runs, nocnoc receives the tracking automatically and can match each package to its order.
 
-<Note>
-  Ready to set up the nocnoc invoice? [See nocnoc invoice →](/sellercloud/invoice)
-</Note>
+<Card title="Ready to set up the nocnoc invoice?" icon="file-invoice" href="/sellercloud/invoice">
+  See **Set specific nocnoc invoice** →
+</Card>
+
+---
+
+## Scenario 2: Individual orders
+
+For cases where consolidation isn't possible, you can ship each order separately. No extra setup is needed — nocnoc doesn't require its invoice for individual shipments.
+
+<Steps>
+  <Step title="Pack the product">
+    Pack the product for shipping.
+  </Step>
+  <Step title="Generate a carrier label">
+    Generate a carrier label (UPS, FedEx, USPS, etc.).
+  </Step>
+  <Step title="Ship the package">
+    Ship the package.
+  </Step>
+  <Step title="Upload the tracking number">
+    Upload the tracking number to the order in Sellercloud. Once the tracking export task runs, nocnoc is notified automatically.
+  </Step>
+</Steps>
 
 <p style={{ margin: '40px 0 0', fontSize: '14px', color: '#9ca3af' }}>
   Have a question about this integration?{' '}
