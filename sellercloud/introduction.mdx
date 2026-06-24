@@ -1,0 +1,58 @@
+---
+title: "Introduction"
+description: "How the Sellercloud integration works, what syncs automatically, and how to get started."
+---
+
+<div style={{
+  background: '#FFF3B0',
+  borderLeft: '4px solid #F5C400',
+  borderRadius: '8px',
+  padding: '16px 20px',
+  marginBottom: '28px',
+  display: 'flex',
+  alignItems: 'flex-start',
+  gap: '12px'
+}}>
+  <span style={{ fontSize: '16px', flexShrink: 0, marginTop: '2px' }}>⚠️</span>
+  <p style={{ margin: 0, fontWeight: '500', fontSize: '15px', color: '#78350F', lineHeight: '1.55' }}>
+    New to nocnoc? You'll need a seller account before setting up this integration.{' '}
+    <a href="https://nocnocstore.com/sign-up" style={{ color: '#78350F', fontWeight: '700', textDecoration: 'underline', textDecorationColor: '#78350F' }}>
+      Create your account →
+    </a>
+  </p>
+</div>
+
+You need to have a seller account with nocnoc and FTP credentials. Your account manager will provide you with the necessary credentials for the setup.
+
+We strongly recommend you create a new designated company in Sellercloud for this integration where you will set up the scheduled tasks and receive the orders.
+
+The Sellercloud integration connects your existing Sellercloud account to nocnoc via FTP. The way it works is that you create a dedicated company inside Sellercloud exclusively for nocnoc — a separate space where you manage everything you want to exchange with nocnoc independently from the rest of your operation. This gives you full control: you can set specific prices, allocate specific stock, and keep all nocnoc-related automation completely isolated from your other channels.
+
+## How it works
+
+The integration runs on three scheduled tasks that you configure once. For each one, you decide which fields to map and how — giving you full flexibility to send nocnoc exactly the data that fits your setup.
+
+- **Inventory export** — sends your stock levels and prices to nocnoc via FTP on the schedule you define.
+- **Order import** — pulls nocnoc orders into your dedicated company automatically, ready to pick and ship.
+- **Tracking export** — once you fulfill an order, sends the tracking information back to nocnoc on your configured schedule.
+
+## What syncs automatically
+
+Once the integration is live, data flows on the schedule you set for each task. nocnoc processes everything on our end as soon as it arrives — but the frequency is yours to control.
+
+<CardGroup cols={3}>
+  <Card title="Stock and prices" icon="boxes-stacked">
+    Exported to nocnoc at your chosen frequency.
+  </Card>
+  <Card title="Orders" icon="shopping-cart">
+    Imported into Sellercloud at your chosen frequency.
+  </Card>
+  <Card title="Tracking" icon="truck">
+    Sent back to nocnoc after fulfillment, at your chosen frequency.
+  </Card>
+</CardGroup>
+
+<p style={{ margin: '40px 0 0', fontSize: '14px', color: '#9ca3af' }}>
+  Have a question about this integration?{' '}
+  <a href="/contact" style={{ color: '#1a6cf4', textDecoration: 'underline' }}>Contact our support team →</a>
+</p>

@@ -129,7 +129,15 @@
           {
             "group": "Get started",
             "pages": [
+              "sellercloud/introduction",
               "sellercloud/setup"
+            ]
+          },
+          {
+            "group": "Orders",
+            "pages": [
+              "sellercloud/manage-orders",
+              "sellercloud/invoice"
             ]
           }
         ]
